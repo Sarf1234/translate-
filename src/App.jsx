@@ -17,6 +17,7 @@ import Tele from "./components/Tele";
 import Translation from "./components/Translation";
 import SplashScreen from "./components/SplashScreen";
 import EndFooter from "./components/EndFooter";
+import GlassyText from "./components/ui/GlassyText";
 
 function App() {
   const [showSplash, setShowSplash] = useState(true);
@@ -75,6 +76,7 @@ function App() {
         <>
           <Navbar />
           <Hero />
+          <GlassyText />
           <SubHero />
           <Translation />
           <Localization />
@@ -97,7 +99,7 @@ function App() {
           <AnimatedSection>
             <Footer />
           </AnimatedSection>
-          <EndFooter />
+          {/* <EndFooter /> */}
         </>
       )}
     </>

@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import image from "../assets/footer_logo.png";
+import image1 from "../assets/tele3.png";
+import image2 from "../assets/tele1.png";
 
 const Footer = () => {
   const [formStatus, setFormStatus] = useState("idle"); // idle, submitting, success, error
@@ -84,19 +86,32 @@ const Footer = () => {
   };
 
   return (
-    <div id="contact" className="flex justify-between pl-[140px] pr-11">
-      <div className="flex flex-col justify-center items-center gap-y-2">
+    <div id="contact" className="flex justify-between pl-[140px] pr-11 bg-[#00296B] !text-white py-8 ">
+    <div className="relative p-8">
+      {/* Background image with reduced opacity */}
+      <div
+        className="absolute inset-0 bg-repeat"
+        style={{
+          backgroundImage: `url(${image1})`,
+          opacity: 0.3, // Adjust opacity as needed
+          backgroundSize: '15% 15%', // Adjust size for repeat density
+          zIndex: 0, // Ensure it's behind the content
+        }}
+      />
+      {/* Content on top */}
+      <div className="relative z-10 flex flex-col justify-center items-center">
         <img src={image} className="w-40 h-40" alt="Footer Logo" />
-        <div className="font-urbanist text-6xl text-[#343434]">Transverse</div>
-        <div className="font-poppins text-[#343434]">
+        <div className="font-urbanist text-6xl text-white">Transverse</div>
+        <div className="font-poppins text-white">
           Connecting Ideas, Creating Impacts
         </div>
-        <div className="flex items-center justify-center gap-x-10 pt-10 font-poppins">
+        <div className="flex items-center justify-center gap-x-10 pt-10 font-poppins text-xs text-white">
           <div>Accessibility Statement</div>
-          <div>Privacy Policy</div>
+           <div>Privacy Policy</div>
           <div>Terms & Condition</div>
         </div>
       </div>
+    </div>
 
       <div className="flex flex-col font-poppins gap-y-2 pt-5">
         <div className="flex gap-x-10 w-full">
@@ -118,14 +133,14 @@ const Footer = () => {
             type="email"
             name="email"
             placeholder="Your Email Address*"
-            className="border-2 border-[#BADA55] w-[500px] rounded-l-full rounded-tr-full py-2 px-5"
+            className="border-2 bg-[#FDC550] outline-0 w-[500px] rounded-l-full rounded-tr-full py-2 px-5"
             required
           />
           <textarea
             name="message"
             rows={4}
             placeholder="Write your message here*"
-            className="border-2 border-[#BADA55] w-[500px] rounded-l-3xl rounded-tr-3xl py-2 px-5"
+            className="border-2 bg-[#FDC550] outline-0 w-[500px] rounded-l-3xl rounded-tr-3xl py-2 px-5"
             required
           />
           <button

@@ -3,6 +3,7 @@ import { motion } from "framer-motion"; // Import Framer Motion
 import image1 from "../assets/hero_image_1.png";
 import image2 from "../assets/hero_image_2.png";
 import image3 from "../assets/hero_image_3.png";
+import ContactButton from "./ui/ContactButton";
 
 const Hero = () => {
   // Animation for rising in (used for text, button, and images)
@@ -75,12 +76,13 @@ const Hero = () => {
           <div>Empowering businesses</div>
           <div>worldwide</div>
         </motion.div>
-        <div
+        {/* <div
           className="inline-block px-5 py-2.5 w-[90px] text-white text-[16px] font-bold text-center cursor-pointer
          bg-[#c5e86c] hover:bg-[#b0d35e] rounded-br-[20px] rounded-tr-[20px] rounded-bl-[20px] border-0 mt-[30px]"
         >
           call us
-        </div>
+        </div> */}
+        <ContactButton />
       </motion.div>
 
       <div className="flex pt-[80px]">
