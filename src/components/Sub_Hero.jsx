@@ -35,13 +35,11 @@ const SubHero = () => {
     <div id="about" className="flex flex-col justify-center items-center">
       {/* Text div with hover event and height animation */}
       <div
-        className={`flex justify-center items-center pt-20 transition-all duration-500 ease-in-out ${
-          isImageVisible ? "h-[290px] mt-40" : "h-[490px]"
-        }`} // Animate height change
+        className={`flex justify-center mb-12 items-center transition-all duration-500 ease-in-out`} // Animate height change
         onMouseEnter={handleTextHover} // Scroll to image and shrink height on hover
         onMouseLeave={() => setIsTextHovered(false)} // Update text hover state
       >
-        <span className="w-[836px] text-center font-poppins">
+        <span className="w-[1050px] text-center font-poppins">
           Drive your global success with precise, reliable translations. Trusted
           by 50+ companies, Transverse delivers accurate solutions for
           businesses and individuals, ensuring your message resonates seamlessly

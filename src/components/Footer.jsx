@@ -1,111 +1,135 @@
 import React, { useState } from "react";
-import image from "../assets/footer_logo.png";
+import image from "../assets/logowhiteee.png";
 import image1 from "../assets/tele3.png";
-import image2 from "../assets/tele1.png";
+import emailjs from "emailjs-com";
 
 const Footer = () => {
   const [formStatus, setFormStatus] = useState("idle"); // idle, submitting, success, error
 
-  const handleSubmit = async (e) => {
+  // const handleSubmit = async (e) => {
+  //   e.preventDefault();
+  //   setFormStatus("submitting");
+
+  //   const form = e.currentTarget;
+  //   const formData = new FormData(form);
+
+  //   const email = formData.get("email");
+  //   const message = formData.get("message");
+
+  //   // Format the current date and time (01:33 AM IST on Tuesday, May 20, 2025)
+  //   const submittedAt = "01:33 AM IST on Tuesday, May 20, 2025";
+
+  //   const emailPayload = {
+  //     to: "contact@transversesolutions.com",
+  //     subject: "You Have a New Lead - Transverse Solutions",
+  //     html: `
+  //       <div style="font-family: 'Poppins', Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #e0e0e0; border-radius: 10px; background-color: #f9f9f9;">
+  //         <!-- Header -->
+  //         <div style="text-align: center; padding-bottom: 20px; border-bottom: 2px solid #BADA55;">
+  //           <h1 style="font-size: 24px; color: #00296B; margin: 0;">Transverse Solutions</h1>
+  //           <p style="font-size: 14px; color: #343434; margin: 5px 0;">Connecting Ideas, Creating Impacts</p>
+  //         </div>
+
+  //         <!-- Body -->
+  //         <div style="padding: 20px 0;">
+  //           <h2 style="font-size: 20px; color: #343434; margin-bottom: 15px;">New Lead Submission</h2>
+  //           <p style="font-size: 16px; color: #343434; line-height: 1.6;">
+  //             You’ve received a new message from a potential lead:
+  //           </p>
+  //           <div style="background-color: #ffffff; padding: 15px; border-radius: 8px; margin: 10px 0; border: 1px solid #e0e0e0;">
+  //             <p style="margin: 5px 0; font-size: 14px; color: #343434;">
+  //               <strong>Email:</strong> ${email}
+  //             </p>
+  //             <p style="margin: 5px 0; font-size: 14px; color: #343434;">
+  //               <strong>Message:</strong> ${message}
+  //             </p>
+  //             <p style="margin: 5px 0; font-size: 14px; color: #343434;">
+  //               <strong>Submitted At:</strong> ${submittedAt}
+  //             </p>
+  //           </div>
+  //           <p style="font-size: 14px; color: #343434; line-height: 1.6;">
+  //             Please follow up with this lead at your earliest convenience.
+  //           </p>
+  //         </div>
+
+  //         <!-- Footer -->
+  //         <div style="text-align: center; padding-top: 20px; border-top: 2px solid #BADA55;">
+  //           <p style="font-size: 12px; color: #777777; margin: 5px 0;">
+  //             © 2025 Transverse Solutions. All rights reserved.
+  //           </p>
+  //           <p style="font-size: 12px; color: #777777; margin: 5px 0;">
+  //             <a href="mailto:contact@transversesolutions.com" style="color: #BADA55; text-decoration: none;">contact@transversesolutions.com</a> | +91 9999108727
+  //           </p>
+  //         </div>
+  //       </div>
+  //     `,
+  //   };
+
+  //   try {
+  //     const response = await fetch("https://backend.tychr.com/api/email", {
+  //       method: "POST",
+  //       headers: { "Content-Type": "application/json" },
+  //       body: JSON.stringify(emailPayload),
+  //     });
+
+  //     if (response.ok) {
+  //       setFormStatus("success");
+  //       form.reset();
+  //     } else {
+  //       console.error("Failed to send email:", await response.text());
+  //       setFormStatus("error");
+  //     }
+  //   } catch (err) {
+  //     console.error("Error sending email:", err);
+  //     setFormStatus("error");
+  //   }
+  // };
+
+  const handleSubmit = (e) => {
     e.preventDefault();
     setFormStatus("submitting");
 
-    const form = e.currentTarget;
-    const formData = new FormData(form);
-
-    const email = formData.get("email");
-    const message = formData.get("message");
-
-    // Format the current date and time (01:33 AM IST on Tuesday, May 20, 2025)
-    const submittedAt = "01:33 AM IST on Tuesday, May 20, 2025";
-
-    const emailPayload = {
-      to: "contact@transversesolutions.com",
-      subject: "You Have a New Lead - Transverse Solutions",
-      html: `
-        <div style="font-family: 'Poppins', Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #e0e0e0; border-radius: 10px; background-color: #f9f9f9;">
-          <!-- Header -->
-          <div style="text-align: center; padding-bottom: 20px; border-bottom: 2px solid #BADA55;">
-            <h1 style="font-size: 24px; color: #00296B; margin: 0;">Transverse Solutions</h1>
-            <p style="font-size: 14px; color: #343434; margin: 5px 0;">Connecting Ideas, Creating Impacts</p>
-          </div>
-
-          <!-- Body -->
-          <div style="padding: 20px 0;">
-            <h2 style="font-size: 20px; color: #343434; margin-bottom: 15px;">New Lead Submission</h2>
-            <p style="font-size: 16px; color: #343434; line-height: 1.6;">
-              You’ve received a new message from a potential lead:
-            </p>
-            <div style="background-color: #ffffff; padding: 15px; border-radius: 8px; margin: 10px 0; border: 1px solid #e0e0e0;">
-              <p style="margin: 5px 0; font-size: 14px; color: #343434;">
-                <strong>Email:</strong> ${email}
-              </p>
-              <p style="margin: 5px 0; font-size: 14px; color: #343434;">
-                <strong>Message:</strong> ${message}
-              </p>
-              <p style="margin: 5px 0; font-size: 14px; color: #343434;">
-                <strong>Submitted At:</strong> ${submittedAt}
-              </p>
-            </div>
-            <p style="font-size: 14px; color: #343434; line-height: 1.6;">
-              Please follow up with this lead at your earliest convenience.
-            </p>
-          </div>
-
-          <!-- Footer -->
-          <div style="text-align: center; padding-top: 20px; border-top: 2px solid #BADA55;">
-            <p style="font-size: 12px; color: #777777; margin: 5px 0;">
-              © 2025 Transverse Solutions. All rights reserved.
-            </p>
-            <p style="font-size: 12px; color: #777777; margin: 5px 0;">
-              <a href="mailto:contact@transversesolutions.com" style="color: #BADA55; text-decoration: none;">contact@transversesolutions.com</a> | +91 9999108727
-            </p>
-          </div>
-        </div>
-      `,
-    };
-
-    try {
-      const response = await fetch("https://backend.tychr.com/api/email", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(emailPayload),
-      });
-
-      if (response.ok) {
-        setFormStatus("success");
-        form.reset();
-      } else {
-        console.error("Failed to send email:", await response.text());
-        setFormStatus("error");
-      }
-    } catch (err) {
-      console.error("Error sending email:", err);
-      setFormStatus("error");
-    }
+    emailjs
+      .sendForm(
+        "service_x2zkxhi",   // Replace with actual
+        "template_ydoiqdv",  // Replace with actual
+        e.target,
+        "t0Uc25bQ8TACi4rFo"    // Replace with actual
+      )
+      .then(
+        (result) => {
+          console.log(result.text);
+          setFormStatus("success");
+          e.target.reset(); // Reset form fields
+        },
+        (error) => {
+          console.error(error.text);
+          setFormStatus("error");
+        }
+      );
   };
 
   return (
-    <div id="contact" className="flex justify-between pl-[140px] pr-11 bg-[#00296B] !text-white py-8 ">
-    <div className="relative p-8">
+    <div id="contact" className="flex justify-between pl-[140px] pr-11 bg-[#00296B] !text-white py-12 ">
+    <div className="relative p-12">
       {/* Background image with reduced opacity */}
       <div
-        className="absolute inset-0 bg-repeat"
+        className="absolute inset-0 bg-repeat "
         style={{
           backgroundImage: `url(${image1})`,
           opacity: 0.3, // Adjust opacity as needed
-          backgroundSize: '15% 15%', // Adjust size for repeat density
+          backgroundSize: '18.2% 17%', // Adjust size for repeat density
           zIndex: 0, // Ensure it's behind the content
         }}
       />
       {/* Content on top */}
       <div className="relative z-10 flex flex-col justify-center items-center">
-        <img src={image} className="w-40 h-40" alt="Footer Logo" />
-        <div className="font-urbanist text-6xl text-white">Transverse</div>
-        <div className="font-poppins text-white">
+        <img src={image} className="w-[400px] mix-blend-multiply h-auto" alt="Footer Logo" />
+        {/* <div className="font-urbanist text-7xl font-normal text-white">Transverse</div>
+        <div className="font-poppins text-white mt-3 font-light">
           Connecting Ideas, Creating Impacts
-        </div>
-        <div className="flex items-center justify-center gap-x-10 pt-10 font-poppins text-xs text-white">
+        </div> */}
+        <div className="flex items-center justify-center gap-x-10 pt-2 font-poppins font-light text-[12px] text-white">
           <div>Accessibility Statement</div>
            <div>Privacy Policy</div>
           <div>Terms & Condition</div>

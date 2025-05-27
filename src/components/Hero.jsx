@@ -3,6 +3,7 @@ import { motion } from "framer-motion"; // Import Framer Motion
 import image1 from "../assets/hero_image_1.png";
 import image2 from "../assets/hero_image_2.png";
 import image3 from "../assets/hero_image_3.png";
+import image4 from "../assets/mouse.png";
 import ContactButton from "./ui/ContactButton";
 
 const Hero = () => {
@@ -48,7 +49,8 @@ const Hero = () => {
   };
 
   return (
-    <div className="flex flex-row justify-between h-auto bg-white px-[86px] pt-10">
+    <div>
+      <div className="flex flex-row justify-between h-auto bg-white px-[86px] pt-10">
       <motion.div
         initial={riseAnimation.initial}
         whileInView={riseAnimation.animate}
@@ -62,6 +64,7 @@ const Hero = () => {
           transition={riseAnimation.transition}
           viewport={{ once: true, amount: 0.5 }}
           className="flex flex-col items-start text-[64px] font-urbanist"
+          style={{ lineHeight: "1.2" }}
         >
           <div>Your Language</div>
           <div>Partner</div>
@@ -83,6 +86,7 @@ const Hero = () => {
           call us
         </div> */}
         <ContactButton />
+        <img src={image4} alt="Mouse Icon" className="w-[40px] h-[40px] mt-20 text-[#2595]" />
       </motion.div>
 
       <div className="flex pt-[80px]">
@@ -114,9 +118,12 @@ const Hero = () => {
               animate={loopAnimation.image3.animate}
               transition={loopAnimation.image3.transition}
             />
+            
           </div>
         </motion.div>
       </div>
+    </div>
+      
     </div>
   );
 };
