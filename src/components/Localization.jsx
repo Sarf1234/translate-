@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion"; // Import Framer Motion
 import image from "../assets/local1.png";
 import image2 from "../assets/local2.png";
+import Leaf from "./ui/Leaf";
+import OrangeLeaf from "./ui/OrangeLeaf";
 
 const Localization = () => {
   const [isHoveredTitle, setIsHoveredTitle] = useState(false); // Track hover state for title (Translation/अनुवाद)
@@ -69,7 +71,7 @@ const Localization = () => {
         </div>
         {/* Image below the text */}
         <div>
-          <motion.img
+          {/* <motion.img
             src={image}
             alt=""
             initial={{ scaleX: 0, originX: 0 }} // Start scaled down from the left
@@ -82,13 +84,14 @@ const Localization = () => {
               delay: 0.7, // Delay to sync with other animations
             }}
             viewport={{ once: true, amount: 0.5 }} // Trigger when 50% in view
-          />
+          /> */}
+          <Leaf />
         </div>
       </div>
 
       <div className="flex flex-col items-start text-[16px] pl-20 gap-y-10">
         <div>
-          <motion.img
+          {/* <motion.img
             src={image2}
             alt=""
             initial={{ scaleX: 0, originX: 1 }} // Start scaled down from the left
@@ -101,7 +104,8 @@ const Localization = () => {
               delay: 0.7, // Delay to sync with other animations
             }}
             viewport={{ once: true, amount: 0.5 }} // Trigger when 50% in view
-          />
+          /> */}
+          <OrangeLeaf />
         </div>
         {/* Container for the description text */}
         <div className="relative w-full ">
