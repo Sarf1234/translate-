@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion"; // Import Framer Motion
 import image from "../assets/tele2.png";
 import image2 from "../assets/tele1.png";
+import BoxLeaf from "./ui/BoxLeaf";
+import OrangeBoxLeaf from "./ui/OrangeBoxLeaf";
 
 const Tele = () => {
   const [isHoveredTitle, setIsHoveredTitle] = useState(false); // Track hover state for title (Translation/अनुवाद)
@@ -70,7 +72,7 @@ const Tele = () => {
         </div>
         {/* Image below the text */}
         <div>
-          <motion.img
+          {/* <motion.img
             src={image}
             alt=""
             initial={{ scaleX: 0, originX: 0 }} // Start scaled down from the left
@@ -83,13 +85,14 @@ const Tele = () => {
               delay: 0.7, // Delay to sync with other animations
             }}
             viewport={{ once: true, amount: 0.5 }} // Trigger when 50% in view
-          />
+          /> */}
+          <BoxLeaf />
         </div>
       </div>
 
       <div className="flex flex-col items-start text-[16px] pl-20 gap-y-10">
         <div>
-          <motion.img
+          {/* <motion.img
             src={image2}
             alt=""
             initial={{ scaleX: 0, originX: 0 }} // Start scaled down from the left
@@ -102,7 +105,8 @@ const Tele = () => {
               delay: 0.7, // Delay to sync with other animations
             }}
             viewport={{ once: true, amount: 0.5 }} // Trigger when 50% in view
-          />
+          /> */}
+          <OrangeBoxLeaf />
         </div>
         {/* Container for the description text */}
         <div className="relative w-full pt-2">

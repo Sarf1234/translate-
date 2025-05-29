@@ -32,7 +32,7 @@ const SubHero = () => {
   }, [isImageVisible]);
 
   return (
-    <div id="about" className="flex flex-col justify-center items-center">
+    <div id="about" className=" scroll-mt-12 flex flex-col justify-center items-center">
       {/* Text div with hover event and height animation */}
       <div
         className={`flex justify-center mb-12 items-center transition-all duration-500 ease-in-out`} // Animate height change

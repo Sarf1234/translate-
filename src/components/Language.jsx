@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from "framer-motion"; // Import Framer Motion
 import image from "../assets/lang3.png";
 import image2 from "../assets/lang1.png";
 import image3 from "../assets/lang2.png";
+import CircleLeaf from "./ui/CircleLeaf";
 
 const Language = () => {
   const [isHoveredTitle, setIsHoveredTitle] = useState(false); // Track hover state for title (Translation/अनुवाद)
@@ -79,7 +80,7 @@ const Language = () => {
           whileInView={{ opacity: 1 }} // No animation on container itself
           viewport={{ once: true, amount: 0.5 }} // Trigger when 50% in view
         >
-          <motion.img
+          {/* <motion.img
             src={image}
             className="pl-12"
             alt=""
@@ -107,7 +108,8 @@ const Language = () => {
               delay: 0.7, // Delay to sync with other animations
             }}
             viewport={{ once: true, amount: 0.5 }} // Individual viewport trigger as fallback
-          />
+          /> */}
+          <CircleLeaf />
         </motion.div>
       </div>
 
@@ -125,8 +127,8 @@ const Language = () => {
             whileInView={{ scaleX: 1 }} // Scale to full width
             transition={{
               type: "spring",
-              stiffness: 70,
-              damping: 10,
+              stiffness: 60,
+              damping: 14,
               duration: 0.5, // Smooth duration
               delay: 0.7, // Delay to sync with other animations
             }}
@@ -139,8 +141,8 @@ const Language = () => {
             whileInView={{ scaleX: 1 }} // Scale to full width
             transition={{
               type: "spring",
-              stiffness: 70,
-              damping: 10,
+              stiffness: 60,
+              damping: 14,
               duration: 0.5, // Smooth duration
               delay: 0.7, // Delay to sync with other animations
             }}
@@ -153,8 +155,8 @@ const Language = () => {
             whileInView={{ scaleX: 1 }} // Scale to full width
             transition={{
               type: "spring",
-              stiffness: 70,
-              damping: 10,
+              stiffness: 60,
+              damping: 14,
               duration: 0.5, // Smooth duration
               delay: 0.7, // Delay to sync with other animations
             }}

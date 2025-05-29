@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import image from "../assets/logowhiteee.png";
-import image1 from "../assets/tele3.png";
+import image1 from "../assets/GroupLeaf.svg";
 import emailjs from "emailjs-com";
 
 const Footer = () => {
@@ -91,10 +91,10 @@ const Footer = () => {
 
     emailjs
       .sendForm(
-        "service_x2zkxhi",   // Replace with actual
-        "template_ydoiqdv",  // Replace with actual
+        "service_x2zkxhi", // Replace with actual
+        "template_ydoiqdv", // Replace with actual
         e.target,
-        "t0Uc25bQ8TACi4rFo"    // Replace with actual
+        "t0Uc25bQ8TACi4rFo" // Replace with actual
       )
       .then(
         (result) => {
@@ -110,32 +110,39 @@ const Footer = () => {
   };
 
   return (
-    <div id="contact" className="flex justify-between pl-[140px] pr-11 bg-[#00296B] !text-white py-12 ">
-    <div className="relative p-12">
-      {/* Background image with reduced opacity */}
-      <div
-        className="absolute inset-0 bg-repeat "
-        style={{
-          backgroundImage: `url(${image1})`,
-          opacity: 0.3, // Adjust opacity as needed
-          backgroundSize: '18.2% 17%', // Adjust size for repeat density
-          zIndex: 0, // Ensure it's behind the content
-        }}
-      />
-      {/* Content on top */}
-      <div className="relative z-10 flex flex-col justify-center items-center">
-        <img src={image} className="w-[400px] mix-blend-multiply h-auto" alt="Footer Logo" />
-        {/* <div className="font-urbanist text-7xl font-normal text-white">Transverse</div>
+    <div
+      id="contact"
+      className="flex justify-between px-32 bg-[#00296B] !text-white py-12 "
+    >
+      <div className="relative p-[25px]">
+        {/* Background image with reduced opacity */}
+        <div
+          className="absolute inset-0"
+          style={{
+            backgroundImage: `url(${image1})`,
+            backgroundSize: "cover", // 🔧 Shows full image without cropping
+            backgroundRepeat: "no-repeat",
+            zIndex: 0,
+          }}
+        />
+        {/* Content on top */}
+        <div className="relative z-10 flex flex-col justify-center items-center">
+          <img
+            src={image}
+            className="w-[400px] mix-blend-multiply h-auto"
+            alt="Footer Logo"
+          />
+          {/* <div className="font-urbanist text-7xl font-normal text-white">Transverse</div>
         <div className="font-poppins text-white mt-3 font-light">
           Connecting Ideas, Creating Impacts
         </div> */}
-        <div className="flex items-center justify-center gap-x-10 pt-2 font-poppins font-light text-[12px] text-white">
-          <div>Accessibility Statement</div>
-           <div>Privacy Policy</div>
-          <div>Terms & Condition</div>
+          <div className="flex items-center justify-center gap-x-10 pt-2 font-poppins font-light text-[12px] text-white">
+            <div>Accessibility Statement</div>
+            <div>Privacy Policy</div>
+            <div>Terms & Condition</div>
+          </div>
         </div>
       </div>
-    </div>
 
       <div className="flex flex-col font-poppins gap-y-2 pt-5">
         <div className="flex gap-x-10 w-full">
@@ -157,14 +164,14 @@ const Footer = () => {
             type="email"
             name="email"
             placeholder="Your Email Address*"
-            className="border-2 bg-[#FDC550] outline-0 w-[500px] rounded-l-full rounded-tr-full py-2 px-5"
+            className="border-2 border-[#FDC550] bg-white text-black outline-0 w-[500px] rounded-l-full rounded-tr-full py-2 px-5"
             required
           />
           <textarea
             name="message"
             rows={4}
             placeholder="Write your message here*"
-            className="border-2 bg-[#FDC550] outline-0 w-[500px] rounded-l-3xl rounded-tr-3xl py-2 px-5"
+            className="border-2 border-[#FDC550] bg-white text-black outline-0 w-[500px] rounded-l-3xl rounded-tr-3xl py-2 px-5"
             required
           />
           <button
