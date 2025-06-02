@@ -72,7 +72,7 @@ export default function OrangeBoxLeafLeft() {
       ))}
 
       {/* Animate shapes (right to left) */}
-      {[...animatedShapes].reverse().map((d, i) => (
+      {[...animatedShapes].map((d, i) => (
         <motion.path
           key={`animated-${i}`}
           d={d}

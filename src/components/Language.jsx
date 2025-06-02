@@ -4,6 +4,33 @@ import image from "../assets/lang3.png";
 import image2 from "../assets/lang1.png";
 import image3 from "../assets/lang2.png";
 import CircleLeaf from "./ui/CircleLeaf";
+import CircleOrangeLeaf from "./ui/CircleOrangeLeaf";
+
+const leafVariants = {
+  hidden: { opacity: 0, x: 100 },
+  visible: (i) => ({
+    opacity: 1,
+    x: 0,
+    transition: {
+      delay: i * 0.2,
+      type: "spring",
+      stiffness: 50,
+      damping: 20,
+    },
+  }),
+};
+
+const AnimatedLeaf = ({ delayIndex }) => (
+  <motion.div
+    custom={delayIndex}
+    variants={leafVariants}
+    initial="hidden"
+    whileInView="visible"
+    viewport={{ once: true, amount: 0.5 }}
+  >
+    <CircleOrangeLeaf />
+  </motion.div>
+);
 
 const Language = () => {
   const [isHoveredTitle, setIsHoveredTitle] = useState(false); // Track hover state for title (Translation/अनुवाद)
@@ -17,7 +44,7 @@ const Language = () => {
     damping: 20, // Slightly increased damping to reduce bounciness
   };
 
-    const riseAnimation = {
+  const riseAnimation = {
     initial: { opacity: 0, y: 50 }, // Start 50px below and invisible
     animate: { opacity: 1, y: 0 }, // Move to original position and fully visible
     transition: {
@@ -28,7 +55,6 @@ const Language = () => {
       delay: 1, // Add 0.3s delay for the animation
     },
   };
-
 
   return (
     <div className="grid grid-cols-2 bg-[#00296B] text-white py-16">
@@ -120,7 +146,7 @@ const Language = () => {
           whileInView={{ opacity: 1 }} // No animation on container itself
           viewport={{ once: true, amount: 0.5 }} // Trigger when 50% in view
         >
-          <motion.img
+          {/* <motion.img
             src={image2}
             alt=""
             initial={{ scaleX: 0, originX: 1 }} // Start scaled down from the right
@@ -133,8 +159,31 @@ const Language = () => {
               delay: 0.7, // Delay to sync with other animations
             }}
             viewport={{ once: true, amount: 0.5 }} // Individual viewport trigger as fallback
-          />
-          <motion.img
+          /> */}
+          <div className="flex justify-center items-center">
+            <CircleOrangeLeaf />
+            <AnimatedLeaf delayIndex={0} />
+            <AnimatedLeaf delayIndex={1} />
+            <AnimatedLeaf delayIndex={2} />
+            <AnimatedLeaf delayIndex={3} />
+          </div>
+          <div className="flex justify-center items-center">
+            <CircleOrangeLeaf />
+            <AnimatedLeaf delayIndex={0} />
+            <AnimatedLeaf delayIndex={1} />
+            <AnimatedLeaf delayIndex={2} />
+            <AnimatedLeaf delayIndex={3} />
+            <AnimatedLeaf delayIndex={4} />
+          </div>
+          <div className="flex justify-center items-center">
+            <CircleOrangeLeaf />
+            <AnimatedLeaf delayIndex={0} />
+            <AnimatedLeaf delayIndex={1} />
+            <AnimatedLeaf delayIndex={2} />
+            <AnimatedLeaf delayIndex={3} />
+          </div>
+
+          {/* <motion.img
             src={image3}
             alt=""
             initial={{ scaleX: 0, originX: 1 }} // Start scaled down from the right
@@ -147,8 +196,8 @@ const Language = () => {
               delay: 0.7, // Delay to sync with other animations
             }}
             viewport={{ once: true, amount: 0.5 }} // Individual viewport trigger as fallback
-          />
-          <motion.img
+          /> */}
+          {/* <motion.img
             src={image2}
             alt=""
             initial={{ scaleX: 0, originX: 1 }} // Start scaled down from the right
@@ -161,7 +210,7 @@ const Language = () => {
               delay: 0.7, // Delay to sync with other animations
             }}
             viewport={{ once: true, amount: 0.5 }} // Individual viewport trigger as fallback
-          />
+          /> */}
         </motion.div>
         {/* Container for the description text */}
         <div className="relative w-full ">
