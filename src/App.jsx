@@ -75,9 +75,9 @@ function App() {
       ) : (
         <>
           <Navbar />
-          <Hero />
+          {/* <Hero />
           <GlassyText />
-          <SubHero />
+          <SubHero /> */}
           <Translation />
           <Localization />
           <Language />

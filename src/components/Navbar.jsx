@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import logo from "../assets/logo.png";
+import logo from "../assets/logonavbar.svg";
 
 const Navbar = () => {
   const handleScroll = (e, id) => {
@@ -28,7 +28,7 @@ const Navbar = () => {
     <div className="relative">
       <div className="fixed top-0 left-0 w-full z-50">
         <motion.div
-          className="relative flex justify-center items-center h-[40px] bg-[#00296B] text-white px-[58px]"
+          className="relative flex justify-center items-center h-[40px] bg-[#00296B] text-white px-[50px]"
           variants={navbarVariants}
           initial="hidden"
           animate="visible"
@@ -63,7 +63,12 @@ const Navbar = () => {
             </a>
           </div>
         </motion.div>
-        <hr className="border-2 border-[#FDC550]" />
+        <motion.hr 
+          className="border-2 border-[#FDC550]" 
+          variants={navbarVariants}
+          initial="hidden"
+          animate="visible"
+        />
       </div>
     </div>
   );
