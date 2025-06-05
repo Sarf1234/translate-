@@ -37,7 +37,7 @@ const Navbar = () => {
             <img src={logo} alt="Logo" className="h-[22px] w-[22px]" />
           </div>
 
-          <div className="">Connecting Ideas, Creating Impact</div>
+          <div className="font-poppins">Connecting Ideas, Creating Impact</div>
 
           <div className="absolute right-15 flex items-center">
             <a

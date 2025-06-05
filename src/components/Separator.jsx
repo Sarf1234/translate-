@@ -160,7 +160,7 @@ const Separator = () => {
   };
 
   return (
-    <div className="overflow-hidden py-10 text-[#00296B]">
+    <div className="overflow-hidden pt-16 pb-4 text-[#00296B]">
       <motion.div
         className="flex w-[100%]" // 4 slides, each 100% of parent width
         variants={containerVariants}

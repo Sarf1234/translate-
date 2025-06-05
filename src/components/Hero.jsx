@@ -26,45 +26,45 @@ const Hero = () => {
       animate: { y: [0, -20, -20, 0, 0] }, // Move 40px up, pause, return, pause
       transition: {
         y: {
-          times: [0, 0.3, 0.5, 0.8, 1], // 30% to -40, 20% pause, 30% to 0, 20% pause
+          times: [0, 0.2, 0.6, 0.8, 1.8], // 30% to -40, 20% pause, 30% to 0, 20% pause
           repeat: Infinity,
-          duration: 1.2, // 5s total (1.5s up, 1s pause, 1.5s down, 1s pause)
+          duration: 1.5, // 5s total (1.5s up, 1s pause, 1.5s down, 1s pause)
           ease: "easeInOut", // Smooth easing
-          delay: 0.8, // Start after riseAnimation
+          delay: 1.2, // Start after riseAnimation
         },
       },
     },
     image2: {
-      animate: { y: [0, -50, -50, 0, 0] }, // Move 40px up, pause, return, pause
+      animate: { y: [0, -70, -70, 0, 0] }, // Move 40px up, pause, return, pause
       transition: {
         y: {
-          times: [0, 0.3, 0.5, 0.8, 1], // 30% to -40, 20% pause, 30% to 0, 20% pause
+         times: [0, 0.2, 0.6, 0.8, 1.8], // 30% to -40, 20% pause, 30% to 0, 20% pause
           repeat: Infinity,
-          duration: 1.2, // 5s total (1.5s up, 1s pause, 1.5s down, 1s pause)
+          duration: 1.5, // 5s total (1.5s up, 1s pause, 1.5s down, 1s pause)
           ease: "easeOut", // Smooth easing
-          delay: 0.8, // Start after riseAnimation
+          delay: 1.2, // Start after riseAnimation
         },
       },
     },
     image3: {
       animate: {
-        x: [0, -70, -70, 0, 0],
+        x: [0, -100, -100, 0, 0],
         y: [0, -15, -15, 0, 0], // upward motion in sync with x
       },
       transition: {
         x: {
-          times: [0, 0.3, 0.5, 0.8, 1],
+          times: [0, 0.2, 0.6, 0.8, 1.8],
           repeat: Infinity,
-          duration: 1.2,
+          duration: 1.5,
           ease: "easeOut",
-          delay: 0.8,
+          delay: 1.2,
         },
         y: {
-          times: [0, 0.3, 0.5, 0.8, 1],
+          times: [0, 0.2, 0.6, 0.8, 1.8],
           repeat: Infinity,
-          duration: 1.2,
+          duration: 1.5,
           ease: "easeOut",
-          delay: 0.8,
+          delay: 1.2,
         },
       },
     },

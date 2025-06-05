@@ -4,6 +4,7 @@ import image from "../assets/tele2.png";
 import image2 from "../assets/tele1.png";
 import BoxLeaf from "./ui/BoxLeaf";
 import OrangeBoxLeaf from "./ui/OrangeBoxLeaf";
+import AnimatedText from "./ui/AnimatedText";
 
 const Tele = () => {
   const [isHoveredTitle, setIsHoveredTitle] = useState(false); // Track hover state for title (Translation/अनुवाद)
@@ -18,7 +19,7 @@ const Tele = () => {
   };
 
     const riseAnimation = {
-    initial: { opacity: 0, y: 50 }, // Start 50px below and invisible
+    initial: { opacity: 0, y: 10 }, // Start 50px below and invisible
     animate: { opacity: 1, y: 0 }, // Move to original position and fully visible
     transition: {
       type: "spring",
@@ -32,9 +33,9 @@ const Tele = () => {
 
   return (
     <div className="grid grid-cols-2 bg-white py-14">
-      <div className="flex flex-col items-start text-[88px] pl-20 space-y-28">
+      <div className="flex flex-col items-start text-[88px] pl-20 space-y-12">
         {/* Container for the title text with relative positioning */}
-        <div className="relative h-[76px]">
+        {/* <div className="relative h-[76px]">
           <motion.div
             onMouseEnter={() => setIsHoveredTitle(true)} // Show Hindi title on hover
             onMouseLeave={() => setIsHoveredTitle(false)} // Show English title on hover out
@@ -69,7 +70,14 @@ const Tele = () => {
               )}
             </AnimatePresence>
           </motion.div>
-        </div>
+        </div> */}
+        <AnimatedText
+            englishText="Telemarketing"
+            hindiText="टेली विपणन"
+            englishClassName="font-urbanist"
+            hindiClassName = "font-urbanist"
+            containerClassName="bg-[#ffffff]"
+          />
         {/* Image below the text */}
         <div>
           {/* <motion.img
@@ -90,7 +98,7 @@ const Tele = () => {
         </div>
       </div>
 
-      <div className="flex flex-col items-start text-[16px] pl-20 gap-y-10">
+      <div className="flex flex-col items-start text-[16px] pl-20 gap-y-12">
         <div>
           {/* <motion.img
             src={image2}

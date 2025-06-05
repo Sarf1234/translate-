@@ -15,17 +15,34 @@ const Patrons = () => {
     },
   };
 
-  const leafAnimation = {
-    initial: { opacity: 0, y: 20 }, // Start 50px below and invisible
-    animate: { opacity: 1, y: 0 }, // Move to original position and fully visible
+  // const leafAnimation = {
+  //   initial: { opacity: 0, y: 20 }, // Start 50px below and invisible
+  //   animate: { opacity: 1, y: 0 }, // Move to original position and fully visible
+  //   transition: {
+  //     type: "tween",
+  //     stiffness: 150,
+  //     damping: 15,
+  //     duration: 0.2, // Smooth duration for the rise
+  //     delay: 1.5, // Add 0.3s delay for the animation
+  //   },
+  // };
+
+const leafAnimation = {
+  initial: {
+    scaleX: 0,
+    scaleY: 0,
+    transformOrigin: "bottom left",
+  },
+  animate: {
+    scaleX: 1,
+    scaleY: 1,
     transition: {
       type: "tween",
-      stiffness: 150,
-      damping: 15,
-      duration: 0.2, // Smooth duration for the rise
-      delay: 1.5, // Add 0.3s delay for the animation
+      duration: 0.1, // faster animation
+      delay: 1.6,    // adjust as per your scene
     },
-  };
+  },
+};
 
   return (
     <div className="flex flex-col justify-center items-center bg-[#00296B] py-10">

@@ -4,6 +4,7 @@ import image from "../assets/translation.png";
 import image2 from "../assets/trans_2.png";
 import BoxAndLeaf from "./ui/BoxAndLeaf";
 import OrangeBoxAndLeaf from "./ui/OrangeBoxAndLeaf";
+import AnimatedText from "./ui/AnimatedText";
 
 const Translation = () => {
   const [isHoveredTitle, setIsHoveredTitle] = useState(false); // Track hover state for title
@@ -19,7 +20,7 @@ const Translation = () => {
 
   // Animation settings for the initial rise effect
   const riseAnimation = {
-    initial: { opacity: 0, y: 100 }, // Start 50px below and invisible
+    initial: { opacity: 0, y: 10 }, // Start 50px below and invisible
     animate: { opacity: 1, y: 0 }, // Move to original position and fully visible
     transition: {
       type: "spring",
@@ -32,44 +33,15 @@ const Translation = () => {
 
   return (
     <div id="services" className="scroll-mt-12 grid grid-cols-2 bg-[#00296B] py-14">
-      <div className="flex flex-col items-start text-[88px] text-white pl-20 space-y-28">
+      <div className="flex flex-col items-start text-[88px] text-white pl-20 space-y-12">
         {/* Container for the title text with relative positioning */}
-        <div className="relative h-[76px]">
-          <motion.div
-            onMouseEnter={() => setIsHoveredTitle(true)}
-            onMouseLeave={() => setIsHoveredTitle(false)}
-            initial={riseAnimation.initial} // Explicitly set initial state
-            whileInView={riseAnimation.animate} // Use whileInView for viewport detection
-            transition={riseAnimation.transition} // Apply transition with delay
-            viewport={{ once: true, amount: 0.5 }} // Trigger when 50% of component is in view
-          >
-            <AnimatePresence mode="sync">
-              {isHoveredTitle ? (
-                <motion.div
-                  key="hindi-title"
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: 10 }}
-                  transition={{ ...springSettings, delay: 0.001 }}
-                  className="absolute"
-                >
-                  अनुवाद
-                </motion.div>
-              ) : (
-                <motion.div
-                  key="english-title"
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: 10 }}
-                  transition={{ ...springSettings, delay: 0.001 }}
-                  className="absolute font-urbanist"
-                >
-                  Translation
-                </motion.div>
-              )}
-            </AnimatePresence>
-          </motion.div>
-        </div>
+          <AnimatedText
+            englishText="Translation"
+            hindiText="अनुवाद"
+            englishClassName="font-urbanist"
+            hindiClassName = "font-urbanist"
+            containerClassName="bg-[#00296B]"
+          />
         {/* Image below the text */}
         <div>
           {/* <motion.img

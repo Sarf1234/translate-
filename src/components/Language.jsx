@@ -5,6 +5,7 @@ import image2 from "../assets/lang1.png";
 import image3 from "../assets/lang2.png";
 import CircleLeaf from "./ui/CircleLeaf";
 import CircleOrangeLeaf from "./ui/CircleOrangeLeaf";
+import AnimatedText from "./ui/AnimatedText";
 
 const leafVariants = {
   hidden: { opacity: 0, x: 100 },
@@ -45,7 +46,7 @@ const Language = () => {
   };
 
   const riseAnimation = {
-    initial: { opacity: 0, y: 50 }, // Start 50px below and invisible
+    initial: { opacity: 0, y: 10 }, // Start 50px below and invisible
     animate: { opacity: 1, y: 0 }, // Move to original position and fully visible
     transition: {
       type: "spring",
@@ -58,9 +59,9 @@ const Language = () => {
 
   return (
     <div className="grid grid-cols-2 bg-[#00296B] text-white py-16">
-      <div className="flex flex-col items-start text-[88px] pl-20 space-y-40">
+      <div className="flex flex-col items-start text-[88px] pl-20 space-y-2">
         {/* Container for the title text with relative positioning */}
-        <div className="relative h-[76px] ">
+        {/* <div className="relative h-[76px] ">
           <motion.div
             onMouseEnter={() => setIsHoveredTitle(true)} // Show Hindi title on hover
             onMouseLeave={() => setIsHoveredTitle(false)} // Show English title on hover out
@@ -97,7 +98,18 @@ const Language = () => {
               )}
             </AnimatePresence>
           </motion.div>
-        </div>
+        </div> */}
+        <AnimatedText
+          englishText="Language Training"
+          hindiText={
+            <>
+              भाषा <br /> प्रशिक्षण
+            </>
+          }
+          englishClassName="font-urbanist"
+          hindiClassName="font-urbanist"
+          containerClassName="bg-[#00296B]"
+        />
         {/* Image below the text */}
 
         <motion.div
@@ -139,7 +151,7 @@ const Language = () => {
         </motion.div>
       </div>
 
-      <div className="flex flex-col items-start text-[16px] pl-20 gap-y-20">
+      <div className="flex flex-col items-start text-[16px] pl-20 gap-y-32">
         <motion.div
           className="flex flex-col justify-center items-center"
           initial={{ opacity: 1 }} // Ensure container is visible

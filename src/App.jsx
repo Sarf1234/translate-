@@ -75,9 +75,9 @@ function App() {
       ) : (
         <>
           <Navbar />
-          {/* <Hero />
+          <Hero />
           <GlassyText />
-          <SubHero /> */}
+          <SubHero />
           <Translation />
           <Localization />
           <Language />
@@ -85,7 +85,7 @@ function App() {
           <Divider />
           <AnimatedSection>
             <Metrics />
-          </AnimatedSection>
+          </AnimatedSection> 
           <Patrons />
           <AnimatedSection>
             <Clients />
@@ -99,6 +99,9 @@ function App() {
           <AnimatedSection>
             <Footer />
           </AnimatedSection>
+          <hr 
+             className="border-2 border-[#FDC550]" 
+          />
           {/* <EndFooter /> */}
         </>
       )}
