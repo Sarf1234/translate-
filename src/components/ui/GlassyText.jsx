@@ -37,7 +37,7 @@ const GlassyText = ({ texttrue, textfalse}) => {
         textfalse(false);
       }}
       // Hides overflow, animates height
-      className={`w-screen relative cursor-pointer overflow-hidden transition-all duration-300 ease-in-out`}
+      className={`w-[1280px] mx-auto relative cursor-pointer overflow-hidden transition-all duration-300 ease-in-out`}
       style={{
         height: isHovered ? "calc(100vw / 3 - 30px)" : "calc(100vw / 3)", // aspect-[3/1] with 20px cut
       }}

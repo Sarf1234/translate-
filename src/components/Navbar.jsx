@@ -35,8 +35,8 @@ const Navbar = () => {
   };
 
   return (
-    <div className="relative">
-      <div className="fixed top-0 left-0 w-full z-50">
+    <div className="relative w-[1280px] mx-auto">
+      <div className="fixed top-0 left-1/2 transform -translate-x-1/2 z-50 w-full max-w-[1280px]">
         <motion.div
           variants={navbarVariants}
           initial="hidden"

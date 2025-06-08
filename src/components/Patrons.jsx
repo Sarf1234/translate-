@@ -46,7 +46,7 @@ const leafAnimation = {
 
   return (
     <div className="flex flex-col justify-center items-center bg-[#00296B] py-10">
-      <div className="flex items-baseline">
+      <div className="flex items-center justify-center">
         <motion.div
           initial={riseAnimation.initial} // Explicitly set initial state
           whileInView={riseAnimation.animate} // Use whileInView for viewport detection
@@ -71,7 +71,7 @@ const leafAnimation = {
         whileInView={riseAnimation.animate} // Use whileInView for viewport detection
         transition={riseAnimation.transition} // Apply transition with delay
         viewport={{ once: true, amount: 0.5 }}
-        className="flex flex-col justify-center items-center text-center text-white text-sm pt-5 font-poppins"
+        className="flex flex-col justify-center items-center text-center text-white text-sm pt-2 font-poppins"
       >
         Transverse works with organizations that require precision, reliability,
         and strategic communication. From public institutions to

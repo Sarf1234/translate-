@@ -47,10 +47,10 @@ const Footer = () => {
         >
           <FooterSplashLogo />
           <div className="flex items-center justify-center font-light text-xs gap-x-10 pt-10 mt-2 font-poppins">
-          <div>Accessibility Statement</div>
-          <div>Privacy Policy</div>
-          <div>Terms & Condition</div>
-        </div>
+            <div>Accessibility Statement</div>
+            <div>Privacy Policy</div>
+            <div>Terms & Condition</div>
+          </div>
         </div>
 
         {/* Contact + Form */}
@@ -82,15 +82,15 @@ const Footer = () => {
               className="border-2 border-[#FDC550] bg-white text-black outline-0 w-full rounded-l-3xl rounded-tr-3xl py-2 px-4"
               required
             />
-           <div className="flex justify-end">
-    <button
-      type="submit"
-      className="bg-[#BADA55] hover:bg-[#A8C63D] cursor-pointer transition duration-300 text-white font-semibold rounded-l-full rounded-br-full py-2.5 px-6 w-fit"
-      disabled={formStatus === "submitting"}
-    >
-      {formStatus === "submitting" ? "Submitting..." : "Send"}
-    </button>
-  </div>
+            <div className="flex justify-end">
+              <button
+                type="submit"
+                className="bg-[#BADA55] hover:bg-[#A8C63D] cursor-pointer transition duration-300 text-white font-semibold rounded-l-full rounded-br-full py-2.5 px-6 w-fit"
+                disabled={formStatus === "submitting"}
+              >
+                {formStatus === "submitting" ? "Submitting..." : "Send"}
+              </button>
+            </div>
 
             {formStatus === "success" && (
               <div className="text-green-500 font-semibold">

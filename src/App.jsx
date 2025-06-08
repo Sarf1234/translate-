@@ -18,6 +18,7 @@ import Translation from "./components/Translation";
 import SplashScreen from "./components/SplashScreen";
 import EndFooter from "./components/EndFooter";
 import GlassyText from "./components/ui/GlassyText";
+import CenterReveal from "./components/ui/CenterReveal";
 
 function App() {
   const [showSplash, setShowSplash] = useState(true);
@@ -73,18 +74,26 @@ function App() {
           <SplashScreen />
         </div>
       ) : (
-        <>
+        <div className="max-w-[1280px] w-full mx-auto">
           <Navbar />
           <Hero />
           <SubHero />
-          <Translation />
-          <Localization />
-          <Language />
-          <Tele />
+          <CenterReveal>
+            <Translation />
+          </CenterReveal>
+          <CenterReveal>
+            <Localization />
+          </CenterReveal>
+          <CenterReveal>
+            <Language />
+          </CenterReveal>
+          <CenterReveal>
+            <Tele />
+          </CenterReveal>
           <Divider />
           <AnimatedSection>
             <Metrics />
-          </AnimatedSection> 
+          </AnimatedSection>
           <Patrons />
           <AnimatedSection>
             <Clients />
@@ -95,14 +104,10 @@ function App() {
           <AnimatedSection>
             <Separator />
           </AnimatedSection>
-          <AnimatedSection>
-            <Footer />
-          </AnimatedSection>
-          <hr 
-             className="border-2 border-[#FDC550]" 
-          />
+          <Footer />
+          <hr className="border-2 border-[#FDC550]" />
           {/* <EndFooter /> */}
-        </>
+        </div>
       )}
     </>
   );
