@@ -53,7 +53,7 @@ const SubHero = () => {
         {/* Gradient Overlay */}
         {/* Dynamic Background Based on `showTransverseText` */}
         <div
-          className={`absolute bottom-0 left-0 w-full h-1/2 transition-all duration-1000 ease pointer-events-none ${
+          className={`absolute bottom-0 left-0 w-full h-1/2 transition-all duration-1500 ease-in-out pointer-events-none ${
             showTransverseText ? "" : "bg-transparent"
           }`}
           style={

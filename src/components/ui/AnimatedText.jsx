@@ -38,7 +38,7 @@ const AnimatedText = ({
               initial={{ scaleX: 1 }}
               whileInView={{ scaleX: 0 }}
               transition={{
-                duration: 1,
+                duration: 0.6,
                 delay: 0.5,
                 ease: [0.25, 0.8, 0.9, 1],
               }}
