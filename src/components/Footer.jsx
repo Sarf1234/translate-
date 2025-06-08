@@ -46,7 +46,7 @@ const Footer = () => {
           }}
         >
           <FooterSplashLogo />
-          <div className="flex items-center justify-center font-light text-xs gap-x-10 pt-10 font-poppins">
+          <div className="flex items-center justify-center font-light text-xs gap-x-10 pt-10 mt-2 font-poppins">
           <div>Accessibility Statement</div>
           <div>Privacy Policy</div>
           <div>Terms & Condition</div>
@@ -56,7 +56,7 @@ const Footer = () => {
         {/* Contact + Form */}
         <div className="w-full md:w-1/2 flex flex-col gap-y-6 font-poppins p-4">
           <div className="flex flex-col sm:flex-row justify-between gap-y-2">
-            <div className="font-medium">Contact Us:</div>
+            <div className="font-semibold">Contact Us:</div>
             <div className="text-right font-base">
               <div>+91 9999108727</div>
               <div>contact@transversesolutions.com</div>

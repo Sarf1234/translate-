@@ -41,18 +41,23 @@ const Gallery = () => {
   <div className="pointer-events-none absolute bottom-0 left-0 w-full h-8 z-10 bg-gradient-to-t from-white/90 to-transparent" />
 
   {/* Scrollable content */}
-  <div className="h-full overflow-y-auto scrollbar-hide px-4 py-10">
-    <div className="flex flex-col items-center gap-y-5">
-      {images.map((image, index) => (
-        <img
-          key={index}
-          src={image}
-          alt={`Gallery item ${index + 1}`}
-          className="w-full h-auto"
-        />
-      ))}
-    </div>
+  <div className="h-full overflow-y-auto scrollbar-hide px-8 py-10">
+  <div className="flex flex-col items-center gap-y-5">
+    {images.map((image, index) => (
+      <img
+        key={index}
+        src={image}
+        alt={`Gallery item ${index + 1}`}
+        className={
+          index === 0
+            ? "object-contain px-24" // full screen first image
+            : null // normal images
+        }
+      />
+    ))}
   </div>
+</div>
+
 </div>
 
   );

@@ -67,16 +67,16 @@ const FooterSplashLogoHoverSequence = () => {
             <Lottie
               animationData={flow1}
               loop={false}
-              className="absolute top-4/12 w-full h-full scale-125"
-              style={{ transform: "scale(2.5)", transformOrigin: "center" }}
+              className="absolute top-4/12 w-full h-full"
+              style={{ transform: "scale(2.4)", transformOrigin: "center" }}
             />
           )}
           {currentAnimation === 2 && (
             <Lottie
               animationData={flow3}
               loop={false}
-              className="absolute top-4/12 w-full h-full scale-125"
-              style={{ transform: "scale(2.5)", transformOrigin: "center" }}
+              className="absolute top-4/12 w-full h-full "
+              style={{ transform: "scale(2.4)", transformOrigin: "center" }}
               onComplete={handleAnimationEnd}
             />
           )}
@@ -86,7 +86,7 @@ const FooterSplashLogoHoverSequence = () => {
               loop={false}
               className="absolute top-4/12 w-full h-full"
               onComplete={handleAnimationEnd}
-              style={{ transform: "scale(2.5)", transformOrigin: "center" }}
+              style={{ transform: "scale(2.4)", transformOrigin: "center" }}
             />
           )}
         </>
@@ -97,7 +97,7 @@ const FooterSplashLogoHoverSequence = () => {
           loop={false}
           autoplay={false}
           className="absolute top-4/12 w-full h-full scale-125"
-          style={{ transform: "scale(2.5)", transformOrigin: "center" }}
+          style={{ transform: "scale(2.4)", transformOrigin: "center" }}
         />
       )}
     </div>

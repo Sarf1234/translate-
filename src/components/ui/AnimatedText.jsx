@@ -11,7 +11,7 @@ const AnimatedText = ({
   const [isHovered, setIsHovered] = useState(false);
   const [coversVisible, setCoversVisible] = useState({
     horizontal: true,
-    vertical: true
+    vertical: true,
   });
 
   const springSettings = {
@@ -22,9 +22,9 @@ const AnimatedText = ({
     <div className={`relative`}>
       <motion.div
         className="relative inline-block"
-        initial={{ y: 10 }}
+        initial={{ y: 30 }}
         whileInView={{ y: 0 }}
-        transition={{ duration: 0.2 }}
+        transition={{ delay: 0.5, duration: 0.5 }}
         viewport={{ once: true, amount: 1 }}
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
@@ -33,36 +33,39 @@ const AnimatedText = ({
         <div className="relative inline-block">
           {/* Top-to-bottom cover */}
           {coversVisible.horizontal && (
-  <motion.div
-    className={`absolute inset-0 origin-right bg-[#00296B] z-10 ${containerClassName}`}
-    initial={{ scaleX: 1 }}
-    whileInView={{ scaleX: 0 }}
-    transition={{ 
-      duration: 0.6,
-      delay: 0.1,
-      ease: [0.25, 0.8, 0.9, 1]
-    }}
-    viewport={{ once: true }}
-    onAnimationComplete={() => setCoversVisible(p => ({ ...p, horizontal: false }))}
-  />
-)}
-
+            <motion.div
+              className={`absolute inset-0 origin-right z-10 ${containerClassName}`}
+              initial={{ scaleX: 1 }}
+              whileInView={{ scaleX: 0 }}
+              transition={{
+                duration: 1,
+                delay: 0.5,
+                ease: [0.25, 0.8, 0.9, 1],
+              }}
+              viewport={{ once: true }}
+              onAnimationComplete={() =>
+                setCoversVisible((p) => ({ ...p, horizontal: false }))
+              }
+            />
+          )}
 
           {/* Bottom-to-top cover */}
           {coversVisible.vertical && (
-  <motion.div
-    className={`absolute inset-0 origin-bottom bg-[#00296B] z-10 ${containerClassName}`}
-    initial={{ scaleY: 1 }}
-    whileInView={{ scaleY: 0 }}
-    transition={{
-      duration: 0.6,
-      delay: 0.3,
-      ease: [0.25, 0.8, 0.9, 1]
-    }}
-    viewport={{ once: true }}
-    onAnimationComplete={() => setCoversVisible(p => ({ ...p, vertical: false }))}
-  />
-)}
+            <motion.div
+              className={`absolute inset-0 origin-bottom z-10 ${containerClassName}`}
+              initial={{ scaleY: 1 }}
+              whileInView={{ scaleY: 0 }}
+              transition={{
+                duration: 1,
+                delay: 0.5,
+                ease: [0.25, 0.8, 0.9, 1],
+              }}
+              viewport={{ once: true }}
+              onAnimationComplete={() =>
+                setCoversVisible((p) => ({ ...p, vertical: false }))
+              }
+            />
+          )}
 
           {/* Text content (Hover-based) */}
           <AnimatePresence mode="popLayout">
@@ -74,7 +77,7 @@ const AnimatedText = ({
                 exit={{ opacity: 0 }}
                 transition={{
                   ...springSettings,
-                  duration: 0.3
+                  duration: 0.3,
                 }}
                 className={`relative ${hindiClassName}`}
               >
@@ -88,7 +91,7 @@ const AnimatedText = ({
                 exit={{ opacity: 0 }}
                 transition={{
                   ...springSettings,
-                  duration: 0.3
+                  duration: 0.3,
                 }}
                 className={`relative ${englishClassName}`}
               >

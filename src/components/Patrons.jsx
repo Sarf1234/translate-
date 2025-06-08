@@ -1,5 +1,5 @@
 import React from "react";
-import image from "../assets/patrons.png";
+import image from "../assets/patron.svg";
 import { motion, AnimatePresence } from "framer-motion"; // Import Framer Motion
 
 const Patrons = () => {

@@ -114,7 +114,7 @@ const Separator = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setActiveIndex((prevIndex) => (prevIndex + 1) % slides.length);
-    }, 3000);
+    }, 1000);
     return () => clearInterval(interval);
   }, [slides.length]);
 
@@ -129,7 +129,7 @@ const Separator = () => {
           mass: 1,
           stiffness: 80,
           damping: 20,
-          delay: 0.001, // 1ms delay
+          delay: 0.002, // 1ms delay
         },
       },
     }),
@@ -144,7 +144,7 @@ const Separator = () => {
         mass: 1,
         stiffness: 80,
         damping: 20,
-        delay: 0.001, // 1ms delay
+        delay: 0.002, // 1ms delay
       },
     },
     inactive: {
@@ -154,7 +154,7 @@ const Separator = () => {
         mass: 1,
         stiffness: 80,
         damping: 20,
-        delay: 0.001, // 1ms delay
+        delay: 0.002, // 1ms delay
       },
     },
   };

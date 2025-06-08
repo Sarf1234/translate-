@@ -23,16 +23,26 @@ const Navbar = () => {
       },
     },
   };
+  const navbarVariants1 = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        duration: 0.4,
+        ease: "easeOut",
+      },
+    },
+  };
 
   return (
     <div className="relative">
       <div className="fixed top-0 left-0 w-full z-50">
         <motion.div
-          className="relative flex justify-center items-center h-[40px] bg-[#00296B] text-white px-[50px]"
           variants={navbarVariants}
           initial="hidden"
           animate="visible"
         >
+          <div className="relative flex justify-center items-center h-[40px] bg-[#00296B] text-white px-[50px]">
           <div className="absolute left-12">
             <img src={logo} alt="Logo" className="h-[22px] w-[22px]" />
           </div>
@@ -62,13 +72,11 @@ const Navbar = () => {
               Contact
             </a>
           </div>
-        </motion.div>
-        <motion.hr 
+          </div>
+          <motion.hr 
           className="border-2 border-[#FDC550]" 
-          variants={navbarVariants}
-          initial="hidden"
-          animate="visible"
         />
+        </motion.div>
       </div>
     </div>
   );

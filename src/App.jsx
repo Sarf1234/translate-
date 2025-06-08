@@ -37,11 +37,11 @@ function App() {
       setTimeout(() => {
         setShowSplash(false);
         sessionStorage.setItem("hasSeenSplash", "true");
-      }, 500); // Match the transition duration
+      }, 200); // Match the transition duration
     };
 
     // Set timeout for 5 seconds
-    const timer = setTimeout(hideSplash, 500);
+    const timer = setTimeout(hideSplash, 4500);
 
     // Add keypress event listener
     const handleKeyPress = () => {
@@ -76,7 +76,6 @@ function App() {
         <>
           <Navbar />
           <Hero />
-          <GlassyText />
           <SubHero />
           <Translation />
           <Localization />

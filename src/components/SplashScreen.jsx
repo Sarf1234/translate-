@@ -47,14 +47,14 @@ const SplashScreen = () => {
           className="w-full h-full"
         />
       )}
-      {currentAnimation === 3 && (
+      {/* {currentAnimation === 3 && (
         <Lottie
           animationData={flow6}
           loop={false}
           onComplete={handleAnimationComplete}
           className="w-full h-full"
         />
-      )}
+      )} */}
       <p className="text-sm text-gray-600 mt-4">Click anywhere to skip</p>
     </div>
   );

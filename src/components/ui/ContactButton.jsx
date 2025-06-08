@@ -32,7 +32,7 @@ export default function ContactButton() {
         onHoverStart={handleHoverStart}
         onHoverEnd={handleHoverEnd}
         transition={{
-          duration: 0.6,
+          duration: 0.4,
           delay: animationStage === "opening" ? 0.3 : 0,
         }}
         className="inline-block px-4 py-2 text-white text-[16px] font-bold text-center cursor-pointer
@@ -60,8 +60,8 @@ export default function ContactButton() {
               animate={{
                 opacity: 1,
                 transition: {
-                  delay: 0.6,
-                  duration: 0.1,
+                  delay: 0.4,
+                  duration: 0.2,
                 },
               }}
               exit={{
@@ -77,7 +77,7 @@ export default function ContactButton() {
                   opacity: 1,
                   transition: {
                     delay: 0.4,
-                    duration: 0.3,
+                    duration: 0.2,
                   },
                 }}
                 className="text-green-700 text-md font-semibold origin-bottom" // Added origin-bottom
@@ -93,8 +93,8 @@ export default function ContactButton() {
                   scaleY: 1,
                   opacity: 1,
                   transition: {
-                    delay: 0.5,
-                    duration: 0.3,
+                    delay: 0.4,
+                    duration: 0.2,
                   },
                 }}
                 className="text-white text-sm hover:underline origin-bottom" // Added origin-bottom
@@ -109,8 +109,8 @@ export default function ContactButton() {
                   scaleY: 1,
                   opacity: 1,
                   transition: {
-                    delay: 0.6,
-                    duration: 0.3,
+                    delay: 0.4,
+                    duration: 0.2,
                   },
                 }}
                 className="text-white text-sm hover:underline origin-bottom" // Added origin-bottom
