@@ -1,56 +1,48 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, lazy, Suspense } from "react";
 import "./App.css";
-import AnimatedSection from "./components/AnimatedSection";
-import Clients from "./components/clients";
-import Divider from "./components/Divider";
-import Footer from "./components/Footer";
-import Gallery from "./components/Gallery";
-import Hero from "./components/Hero";
-import Language from "./components/Language";
-import Localization from "./components/Localization";
-import Metrics from "./components/Metrics";
+
+// 💡 Critical Components
 import Navbar from "./components/Navbar";
-import Patrons from "./components/Patrons";
-import Separator from "./components/Separator";
+import Hero from "./components/Hero";
 import SubHero from "./components/Sub_Hero";
-import Tele from "./components/Tele";
-import Translation from "./components/Translation";
 import SplashScreen from "./components/SplashScreen";
-import EndFooter from "./components/EndFooter";
-import GlassyText from "./components/ui/GlassyText";
+
+// 💡 UI Components (needed early)
 import CenterReveal from "./components/ui/CenterReveal";
+
+// 💡 Lazy-loaded Components
+const Translation = lazy(() => import("./components/Translation"));
+const Localization = lazy(() => import("./components/Localization"));
+const Language = lazy(() => import("./components/Language"));
+const Tele = lazy(() => import("./components/Tele"));
+const Divider = lazy(() => import("./components/Divider"));
+const Metrics = lazy(() => import("./components/Metrics"));
+const Patrons = lazy(() => import("./components/Patrons"));
+const Clients = lazy(() => import("./components/clients"));
+const Gallery = lazy(() => import("./components/Gallery"));
+const Separator = lazy(() => import("./components/Separator"));
+const Footer = lazy(() => import("./components/Footer"));
+const AnimatedSection = lazy(() => import("./components/AnimatedSection"));
 
 function App() {
   const [showSplash, setShowSplash] = useState(true);
   const [fadeOut, setFadeOut] = useState(false);
 
   useEffect(() => {
-    // const hasSeenSplash = sessionStorage.getItem("hasSeenSplash");
-
-    // if (hasSeenSplash) {
-    //   setShowSplash(false);
-    //   return;
-    // }
-
-    // Function to hide splash screen with fade-out
     const hideSplash = () => {
       setFadeOut(true);
       setTimeout(() => {
         setShowSplash(false);
         sessionStorage.setItem("hasSeenSplash", "true");
-      }, 200); // Match the transition duration
+      }, 200);
     };
 
-    // Set timeout for 5 seconds
     const timer = setTimeout(hideSplash, 4500);
 
-    // Add keypress event listener
     const handleKeyPress = () => {
       clearTimeout(timer);
       hideSplash();
     };
-
-    // Add click event listener
     const handleClick = () => {
       clearTimeout(timer);
       hideSplash();
@@ -59,7 +51,6 @@ function App() {
     window.addEventListener("keydown", handleKeyPress);
     window.addEventListener("click", handleClick);
 
-    // Cleanup
     return () => {
       clearTimeout(timer);
       window.removeEventListener("keydown", handleKeyPress);
@@ -78,35 +69,45 @@ function App() {
           <Navbar />
           <Hero />
           <SubHero />
-          <CenterReveal>
-            <Translation />
-          </CenterReveal>
-          <CenterReveal>
-            <Localization />
-          </CenterReveal>
-          <CenterReveal>
-            <Language />
-          </CenterReveal>
-          <CenterReveal>
-            <Tele />
-          </CenterReveal>
-          <Divider />
-          <AnimatedSection>
-            <Metrics />
-          </AnimatedSection>
-          <Patrons />
-          <AnimatedSection>
-            <Clients />
-          </AnimatedSection>
-          <AnimatedSection>
-            <Gallery />
-          </AnimatedSection>
-          <AnimatedSection>
-            <Separator />
-          </AnimatedSection>
-          <Footer />
+
+          <Suspense fallback={<div>Loading...</div>}>
+            <CenterReveal>
+              <Translation />
+            </CenterReveal>
+            <CenterReveal>
+              <Localization />
+            </CenterReveal>
+            <CenterReveal>
+              <Language />
+            </CenterReveal>
+            <CenterReveal>
+              <Tele />
+            </CenterReveal>
+
+            <Divider />
+
+            <AnimatedSection>
+              <Metrics />
+            </AnimatedSection>
+
+            <Patrons />
+
+            <AnimatedSection>
+              <Clients />
+            </AnimatedSection>
+
+            <AnimatedSection>
+              <Gallery />
+            </AnimatedSection>
+
+            <AnimatedSection>
+              <Separator />
+            </AnimatedSection>
+
+            <Footer />
+          </Suspense>
+
           <hr className="border-2 border-[#FDC550]" />
-          {/* <EndFooter /> */}
         </div>
       )}
     </>

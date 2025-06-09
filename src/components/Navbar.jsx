@@ -3,13 +3,36 @@ import { motion } from "framer-motion";
 import logo from "../assets/logonavbar.svg";
 
 const Navbar = () => {
-  const handleScroll = (e, id) => {
-    e.preventDefault(); // Prevent default anchor behavior
-    const element = document.getElementById(id);
-    if (element) {
+  const handleScroll = (e, id, offset = 0, align = "start") => {
+  e.preventDefault();
+  const element = document.getElementById(id);
+  if (element) {
+    if (align === "start") {
+      // Normal scrollIntoView with offset from top
+      const elementTop = element.getBoundingClientRect().top + window.pageYOffset;
+      window.scrollTo({
+        top: elementTop - offset,
+        behavior: "smooth",
+      });
+    } else if (align === "bottom") {
+      // Scroll so that element bottom is offset px above viewport bottom
+      const elementRect = element.getBoundingClientRect();
+      const absoluteElementTop = window.pageYOffset + elementRect.top;
+      const elementHeight = element.offsetHeight;
+      const viewportHeight = window.innerHeight;
+
+      const scrollTo = absoluteElementTop + elementHeight - viewportHeight + offset;
+      window.scrollTo({
+        top: scrollTo,
+        behavior: "smooth",
+      });
+    } else {
+      // Default fallback
       element.scrollIntoView({ behavior: "smooth", block: "start" });
     }
-  };
+  }
+};
+
 
   // Define the animation variants
   const navbarVariants = {
@@ -53,14 +76,14 @@ const Navbar = () => {
             <a
               href="#about"
               className="mx-3 hover:text-gray-300"
-              onClick={(e) => handleScroll(e, "about")}
+              onClick={(e) => handleScroll(e, "about", 40, "bottom")}
             >
               About
             </a>
             <a
               href="#services"
               className="mx-3 hover:text-gray-300"
-              onClick={(e) => handleScroll(e, "services")}
+              onClick={(e) => handleScroll(e, "services", 40, "start")}
             >
               Services
             </a>

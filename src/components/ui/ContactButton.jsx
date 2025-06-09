@@ -22,7 +22,7 @@ export default function ContactButton() {
   };
 
   return (
-    <motion.div className="inline-block">
+    <motion.div className="inline-block relative z-10 overflow-visible">
       <motion.div
         initial={{ width: 90 }}
         animate={{

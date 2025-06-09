@@ -38,7 +38,7 @@ const Hero = () => {
       animate: { y: [0, -70, -70, 0, 0] }, // Move 40px up, pause, return, pause
       transition: {
         y: {
-         times: [0, 0.2, 0.6, 0.8, 1.8], // 30% to -40, 20% pause, 30% to 0, 20% pause
+          times: [0, 0.2, 0.6, 0.8, 1.8], // 30% to -40, 20% pause, 30% to 0, 20% pause
           repeat: Infinity,
           duration: 1.5, // 5s total (1.5s up, 1s pause, 1.5s down, 1s pause)
           ease: "easeOut", // Smooth easing
@@ -107,7 +107,9 @@ const Hero = () => {
         >
           call us
         </div> */}
-          <ContactButton />
+          <div className="relative z-10 overflow-visible">
+            <ContactButton />
+          </div>
           <img
             src={image4}
             alt="Mouse Icon"
