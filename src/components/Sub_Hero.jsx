@@ -26,6 +26,7 @@ const SubHero = () => {
     <div
       id="about"
       className="flex flex-col justify-center items-center"
+      style={{marginBottom:"-2px"}}
     >
       {/* Text block with hover triggering image animation */}
       <GlassyText texttrue={setIsTextHovered} textfalse={setIsTextHovered} />
@@ -52,14 +53,13 @@ const SubHero = () => {
   </div>
 
   {/* Gradient Overlay - linked with image visibility */}
-  <div
-    className="absolute bottom-0 left-0 w-full h-1/2 pointer-events-none select-none transition-opacity duration-1000 ease-in-out"
-    style={{
-      backgroundImage:
-        "linear-gradient(0deg, #00296B 0px, #00296B 12px, rgba(0, 41, 107, 0) 100%)",
-      opacity: isImageVisible ? 1 : 0,
-    }}
-  />
+ <div
+  className="absolute bottom-0 left-0 w-full h-1/2 pointer-events-none select-none transition-opacity duration-1500 ease-in-out"
+  style={{
+    backgroundImage: "linear-gradient(0deg, #00296B 0px, #00296B 12px, rgba(0, 41, 107, 0) 100%)",
+    opacity: showTransverseText ? 1 : 0,
+  }}
+/>
 
   {/* Text Reveal - linked with delayed hover */}
   <div

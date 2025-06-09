@@ -32,8 +32,8 @@ const Translation = () => {
   };
 
   return (
-    <div id="services" className="scroll-mt-10 grid grid-cols-2 bg-[#00296B] py-14">
-      <div className="flex flex-col items-start text-[88px] text-white pl-20 space-y-12">
+    <div id="services" className="scroll-mt-10 flex justify-between items-center bg-[#00296B] py-14 px-[3.5rem]">
+      <div className="flex flex-col items-start text-[88px] text-white space-y-12">
         {/* Container for the title text with relative positioning */}
           <AnimatedText
             englishText="Translation"
@@ -62,26 +62,12 @@ const Translation = () => {
         </div>
       </div>
 
-      <div className="flex flex-col items-start text-[16px] text-white pl-20 gap-y-10">
+      <div className="flex flex-col items-start text-[16px] text-white space-y-12">
         <div>
-          {/* <motion.img
-            src={image2}
-            alt=""
-            initial={{ scaleX: 0, originX: 1 }} // Start scaled down from the left
-            whileInView={{ scaleX: 1 }} // Scale to full width
-            transition={{
-              type: "spring",
-              stiffness: 70,
-              damping: 10,
-              duration: 0.5, // Smooth duration
-              delay: 0.7, // Delay to sync with other animations
-            }}
-            viewport={{ once: true, amount: 0.5 }} // Trigger when 50% in view
-          /> */}
           <OrangeBoxAndLeaf />
         </div>
         {/* Container for the description text */}
-        <div className="relative w-full pt-2">
+        <div className="relative w-full">
           <motion.div
             onMouseEnter={() => setIsHoveredDescription(true)}
             onMouseLeave={() => setIsHoveredDescription(false)}
@@ -91,6 +77,7 @@ const Translation = () => {
             viewport={{ once: true, amount: 0.5 }} // Trigger when 50% of component is in view
           >
             <AnimatePresence mode="sync">
+              <div className="tracking-wide font-poppins min-h-[100px]">
               {isHoveredDescription ? (
                 <motion.div
                   key="hindi-description"
@@ -98,15 +85,15 @@ const Translation = () => {
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: 10 }}
                   transition={{ ...springSettings, delay: 0.001 }}
-                  className="absolute tracking-wide"
+                  className="absolute tracking-wide text-base/8"
                 >
                   अपने वैश्विक सफलता को सटीक और विश्वसनीय अनुवाद के साथ आगे
                   <br />
                   बढ़ाएं। 50+ कंपनियों द्वारा विश्वसनीय, ट्रांसवर्स व्यवसायों और
                   व्यक्तियों के <br />
                   लिए सटीक समाधान प्रदान करता है, जिससे आपका संदेश विभिन्न
-                  उद्योगों में <br />
-                  सहजता से संनादित हो।
+                   <br />
+                 उद्योगों में सहजता से संनादित हो।
                 </motion.div>
               ) : (
                 <motion.div
@@ -115,7 +102,7 @@ const Translation = () => {
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: 10 }}
                   transition={{ ...springSettings, delay: 0.001 }}
-                  className="absolute tracking-wide font-poppins"
+                  className="absolute tracking-wide font-poppins text-base/8"
                 >
                   Drive your global success with precise, reliable translations.
                   <br />
@@ -126,6 +113,7 @@ const Translation = () => {
                   message resonates seamlessly across industries.
                 </motion.div>
               )}
+              </div>
             </AnimatePresence>
           </motion.div>
         </div>

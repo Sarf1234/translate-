@@ -58,47 +58,8 @@ const Language = () => {
   };
 
   return (
-    <div className="grid grid-cols-2 bg-[#00296B] text-white py-16">
-      <div className="flex flex-col items-start text-[88px] pl-20 space-y-2">
-        {/* Container for the title text with relative positioning */}
-        {/* <div className="relative h-[76px] ">
-          <motion.div
-            onMouseEnter={() => setIsHoveredTitle(true)} // Show Hindi title on hover
-            onMouseLeave={() => setIsHoveredTitle(false)} // Show English title on hover out
-            initial={riseAnimation.initial} // Explicitly set initial state
-            whileInView={riseAnimation.animate} // Use whileInView for viewport detection
-            transition={riseAnimation.transition} // Apply transition with delay
-            viewport={{ once: true, amount: 0.5 }} // Trigger when 50% of component is in view
-          >
-            <AnimatePresence mode="sync">
-              {isHoveredTitle ? (
-                <motion.div
-                  key="hindi-title"
-                  initial={{ opacity: 0, y: 10 }} // Start below
-                  animate={{ opacity: 1, y: 0 }} // Move to position
-                  exit={{ opacity: 0, y: 10 }} // Exit below
-                  transition={{ ...springSettings, delay: 0.001 }} // 1ms delay
-                  className="absolute flex flex-col"
-                >
-                  <div>भाषा</div>
-                  <div>प्रशिक्षण</div>
-                </motion.div>
-              ) : (
-                <motion.div
-                  key="english-title"
-                  initial={{ opacity: 0, y: 10 }} // Start below
-                  animate={{ opacity: 1, y: 0 }} // Move to position
-                  exit={{ opacity: 0, y: 10 }} // Exit below
-                  transition={{ ...springSettings, delay: 0.001 }} // 1ms delay
-                  className="absolute font-urbanist flex flex-col"
-                >
-                  <div>Language</div>
-                  <div>Training</div>
-                </motion.div>
-              )}
-            </AnimatePresence>
-          </motion.div>
-        </div> */}
+    <div className="flex justify-between items-center bg-[#00296B] text-white py-16 px-[3.5rem]">
+      <div className="flex flex-col items-start text-[88px] space-y-2">
         <AnimatedText
           englishText="Language Training"
           hindiText={
@@ -118,60 +79,17 @@ const Language = () => {
           whileInView={{ opacity: 1 }} // No animation on container itself
           viewport={{ once: true, amount: 0.5 }} // Trigger when 50% in view
         >
-          {/* <motion.img
-            src={image}
-            className="pl-12"
-            alt=""
-            initial={{ scaleX: 0, originX: 0 }} // Start scaled down from the left
-            whileInView={{ scaleX: 1 }} // Scale to full width
-            transition={{
-              type: "spring",
-              stiffness: 70,
-              damping: 10,
-              duration: 0.5, // Smooth duration
-              delay: 0.7, // Delay to sync with other animations
-            }}
-            viewport={{ once: true, amount: 0.5 }} // Individual viewport trigger as fallback
-          />
-          <motion.img
-            src={image}
-            alt=""
-            initial={{ scaleX: 0, originX: 0 }} // Start scaled down from the left
-            whileInView={{ scaleX: 1 }} // Scale to full width
-            transition={{
-              type: "spring",
-              stiffness: 70,
-              damping: 10,
-              duration: 0.5, // Smooth duration
-              delay: 0.7, // Delay to sync with other animations
-            }}
-            viewport={{ once: true, amount: 0.5 }} // Individual viewport trigger as fallback
-          /> */}
           <CircleLeaf />
         </motion.div>
       </div>
 
-      <div className="flex flex-col items-start text-[16px] pl-20 gap-y-32">
+      <div className="flex flex-col items-start text-[16px] gap-y-20">
         <motion.div
           className="flex flex-col justify-center items-center"
           initial={{ opacity: 1 }} // Ensure container is visible
           whileInView={{ opacity: 1 }} // No animation on container itself
           viewport={{ once: true, amount: 0.5 }} // Trigger when 50% in view
         >
-          {/* <motion.img
-            src={image2}
-            alt=""
-            initial={{ scaleX: 0, originX: 1 }} // Start scaled down from the right
-            whileInView={{ scaleX: 1 }} // Scale to full width
-            transition={{
-              type: "spring",
-              stiffness: 60,
-              damping: 14,
-              duration: 0.5, // Smooth duration
-              delay: 0.7, // Delay to sync with other animations
-            }}
-            viewport={{ once: true, amount: 0.5 }} // Individual viewport trigger as fallback
-          /> */}
           <div className="flex justify-center items-center">
             <CircleOrangeLeaf />
             <AnimatedLeaf delayIndex={0} />
@@ -194,35 +112,6 @@ const Language = () => {
             <AnimatedLeaf delayIndex={2} />
             <AnimatedLeaf delayIndex={3} />
           </div>
-
-          {/* <motion.img
-            src={image3}
-            alt=""
-            initial={{ scaleX: 0, originX: 1 }} // Start scaled down from the right
-            whileInView={{ scaleX: 1 }} // Scale to full width
-            transition={{
-              type: "spring",
-              stiffness: 60,
-              damping: 14,
-              duration: 0.5, // Smooth duration
-              delay: 0.7, // Delay to sync with other animations
-            }}
-            viewport={{ once: true, amount: 0.5 }} // Individual viewport trigger as fallback
-          /> */}
-          {/* <motion.img
-            src={image2}
-            alt=""
-            initial={{ scaleX: 0, originX: 1 }} // Start scaled down from the right
-            whileInView={{ scaleX: 1 }} // Scale to full width
-            transition={{
-              type: "spring",
-              stiffness: 60,
-              damping: 14,
-              duration: 0.5, // Smooth duration
-              delay: 0.7, // Delay to sync with other animations
-            }}
-            viewport={{ once: true, amount: 0.5 }} // Individual viewport trigger as fallback
-          /> */}
         </motion.div>
         {/* Container for the description text */}
         <div className="relative w-full ">
@@ -235,43 +124,45 @@ const Language = () => {
             viewport={{ once: true, amount: 0.5 }} // Trigger when 50% of component is in view
           >
             <AnimatePresence mode="sync">
-              {isHoveredDescription ? (
-                <motion.div
-                  key="hindi-description"
-                  initial={{ opacity: 0, y: 10 }} // Start below
-                  animate={{ opacity: 1, y: 0 }} // Move to position
-                  exit={{ opacity: 0, y: 10 }} // Exit below
-                  transition={{ ...springSettings, delay: 0.001 }} // 1ms delay
-                  className="absolute tracking-wide"
-                >
-                  उद्देश्यपूर्ण भाषा प्रशिक्षण के साथ प्रवाह्यता प्राप्त करें।
-                  हमारे अनुभवी और
-                  <br />
-                  कुशल द्विभाषी प्रशिक्षक आपकी आवश्यकताओं और समयानुसार अनुकूलित
-                  <br />
-                  कार्यक्रम प्रदान करते हैं, जिससे आप आत्मविश्वास, स्पष्टता और{" "}
-                  <br />
-                  प्रभावशीलता के साथ किसी भी भाषा में संवाद कर सकें।
-                </motion.div>
-              ) : (
-                <motion.div
-                  key="english-description"
-                  initial={{ opacity: 0, y: 10 }} // Start below
-                  animate={{ opacity: 1, y: 0 }} // Move to position
-                  exit={{ opacity: 0, y: 10 }} // Exit below
-                  transition={{ ...springSettings, delay: 0.001 }} // 1ms delay
-                  className="absolute tracking-wide font-poppins"
-                >
-                  Achieve fluency with purpose-driven language training. Our
-                  <br />
-                  expert bilingual trainers deliver tailored programs that fit
-                  your
-                  <br />
-                  schedule, empowering you to communicate confidently and
-                  <br />
-                  effectively.
-                </motion.div>
-              )}
+              <div className="tracking-wide font-poppins min-h-[100px] w-full">
+                {isHoveredDescription ? (
+                  <motion.div
+                    key="hindi-description"
+                    initial={{ opacity: 0, y: 10 }} // Start below
+                    animate={{ opacity: 1, y: 0 }} // Move to position
+                    exit={{ opacity: 0, y: 10 }} // Exit below
+                    transition={{ ...springSettings, delay: 0.001 }} // 1ms delay
+                    className="absolute tracking-wide text-base/8"
+                  >
+                    उद्देश्यपूर्ण भाषा प्रशिक्षण के साथ प्रवाह्यता प्राप्त करें।
+                    हमारे अनुभवी 
+                    <br />
+                   और कुशल द्विभाषी प्रशिक्षक आपकी आवश्यकताओं और समयानुसार
+                    
+                    <br />
+                   अनुकूलित कार्यक्रम प्रदान करते हैं, जिससे आप आत्मविश्वास, स्पष्टता {" "}
+                    <br />
+                   और प्रभावशीलता के साथ किसी भी भाषा में संवाद कर सकें।
+                  </motion.div>
+                ) : (
+                  <motion.div
+                    key="english-description"
+                    initial={{ opacity: 0, y: 10 }} // Start below
+                    animate={{ opacity: 1, y: 0 }} // Move to position
+                    exit={{ opacity: 0, y: 10 }} // Exit below
+                    transition={{ ...springSettings, delay: 0.001 }} // 1ms delay
+                    className="absolute tracking-wide font-poppins text-base/8"
+                  >
+                    Achieve fluency with purpose-driven language training. 
+                    <br />
+                   Our expert bilingual trainers deliver tailored programs 
+                    <br />
+                  that fit your schedule, empowering you to communicate confidently and effectively.
+                    <br />
+                   
+                  </motion.div>
+                )}
+              </div>
             </AnimatePresence>
           </motion.div>
         </div>

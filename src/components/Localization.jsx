@@ -31,8 +31,8 @@ const Localization = () => {
   };
 
   return (
-    <div className="grid grid-cols-2 bg-white py-14">
-      <div className="flex flex-col items-start text-[88px] pl-20 space-y-12">
+    <div className="flex justify-between items-center bg-white py-14 px-[3.5rem]">
+      <div className="flex flex-col items-start text-[88px] space-y-12">
         {/* Container for the title text with relative positioning */}
           {/* <motion.div
             onMouseEnter={() => setIsHoveredTitle(true)} // Show Hindi title on hover
@@ -96,22 +96,8 @@ const Localization = () => {
         </div>
       </div>
 
-      <div className="flex flex-col items-start text-[16px] pl-20 gap-y-12">
+      <div className="flex flex-col items-start text-[16px] pl-20 space-y-12">
         <div>
-          {/* <motion.img
-            src={image2}
-            alt=""
-            initial={{ scaleX: 0, originX: 1 }} // Start scaled down from the left
-            whileInView={{ scaleX: 1 }} // Scale to full width
-            transition={{
-              type: "spring",
-              stiffness: 70,
-              damping: 10,
-              duration: 0.5, // Smooth duration
-              delay: 0.7, // Delay to sync with other animations
-            }}
-            viewport={{ once: true, amount: 0.5 }} // Trigger when 50% in view
-          /> */}
           <OrangeLeaf />
         </div>
         {/* Container for the description text */}
@@ -125,6 +111,7 @@ const Localization = () => {
             viewport={{ once: true, amount: 0.5 }} // Trigger when 50% of component is in view
           >
             <AnimatePresence mode="sync">
+               <div className="tracking-wide font-poppins min-h-[100px]">
               {isHoveredDescription ? (
                 <motion.div
                   key="hindi-description"
@@ -132,7 +119,7 @@ const Localization = () => {
                   animate={{ opacity: 1, y: 0 }} // Move to position
                   exit={{ opacity: 0, y: 10 }} // Exit below
                   transition={{ ...springSettings, delay: 0.001 }} // 1ms delay
-                  className="absolute tracking-wide"
+                  className="absolute tracking-wide text-base/8"
                 >
                   संस्कृति-संवेदनशील स्थानीयकरण के साथ नब्ज़ों को बोलें। हम
                   <br />
@@ -149,7 +136,7 @@ const Localization = () => {
                   animate={{ opacity: 1, y: 0 }} // Move to position
                   exit={{ opacity: 0, y: 10 }} // Exit below
                   transition={{ ...springSettings, delay: 0.001 }} // 1ms delay
-                  className="absolute tracking-wide font-poppins"
+                  className="absolute tracking-wide font-poppins text-base/8"
                 >
                   Unlock new markets with culturally attuned localization. We
                   <br />
@@ -160,6 +147,7 @@ const Localization = () => {
                   global growth.
                 </motion.div>
               )}
+              </div>
             </AnimatePresence>
           </motion.div>
         </div>

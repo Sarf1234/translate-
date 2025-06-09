@@ -31,7 +31,7 @@ const Footer = () => {
   return (
     <div
       id="contact"
-      className="bg-[#00296B] text-white px-6 sm:px-10 md:px-16 lg:px-24 py-10"
+      className="bg-[#00296B] max-h-[470px] text-white px-6 sm:px-10 md:px-16 lg:px-24 py-10"
     >
       {/* Background Image */}
       <div className="absolute inset-0 z-0 opacity-40" />
