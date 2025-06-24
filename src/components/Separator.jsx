@@ -160,25 +160,26 @@ const Separator = () => {
   };
 
   return (
-    <div className="overflow-hidden pt-16 pb-4 text-[#00296B]">
+   <div className="overflow-hidden pt-16 pb-4 text-[#00296B]">
+  <motion.div
+    className="flex w-full" // Changed from w-[100%] to w-full for responsiveness
+    variants={containerVariants}
+    initial="initial"
+    animate={{ x: `-${activeIndex * 100}%` }}
+  >
+    {slides.map((slide, index) => (
       <motion.div
-        className="flex w-[100%]" // 4 slides, each 100% of parent width
-        variants={containerVariants}
-        initial="initial"
-        animate={{ x: `-${activeIndex * 100}%` }}
+        key={index}
+        className="flex-1 flex items-center justify-center px-4 sm:px-6 md:px-10 text-base sm:text-lg md:text-xl whitespace-nowrap"
+        variants={slideVariants}
+        animate={index === activeIndex ? "active" : "inactive"}
       >
-        {slides.map((slide, index) => (
-          <motion.div
-            key={index}
-            className="flex-1 flex items-center justify-center text-xl text-nowrap px-10"
-            variants={slideVariants}
-            animate={index === activeIndex ? "active" : "inactive"}
-          >
-            {slide}
-          </motion.div>
-        ))}
+        {slide}
       </motion.div>
-    </div>
+    ))}
+  </motion.div>
+</div>
+
   );
 };
 

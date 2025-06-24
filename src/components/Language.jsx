@@ -1,8 +1,5 @@
 import React, { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion"; // Import Framer Motion
-import image from "../assets/lang3.png";
-import image2 from "../assets/lang1.png";
-import image3 from "../assets/lang2.png";
+import { motion, AnimatePresence } from "framer-motion";
 import CircleLeaf from "./ui/CircleLeaf";
 import CircleOrangeLeaf from "./ui/CircleOrangeLeaf";
 import AnimatedText from "./ui/AnimatedText";
@@ -34,32 +31,31 @@ const AnimatedLeaf = ({ delayIndex }) => (
 );
 
 const Language = () => {
-  const [isHoveredTitle, setIsHoveredTitle] = useState(false); // Track hover state for title (Translation/अनुवाद)
-  const [isHoveredDescription, setIsHoveredDescription] = useState(false); // Track hover state for description
+  const [isHoveredDescription, setIsHoveredDescription] = useState(false);
 
-  // Spring animation settings for a faster transition
   const springSettings = {
     type: "spring",
     mass: 1,
-    stiffness: 200, // Increased stiffness for a quicker snap
-    damping: 20, // Slightly increased damping to reduce bounciness
+    stiffness: 200,
+    damping: 20,
   };
 
   const riseAnimation = {
-    initial: { opacity: 0, y: 10 }, // Start 50px below and invisible
-    animate: { opacity: 1, y: 0 }, // Move to original position and fully visible
+    initial: { opacity: 0, y: 10 },
+    animate: { opacity: 1, y: 0 },
     transition: {
       type: "spring",
       stiffness: 150,
       damping: 15,
-      duration: 0.2, // Smooth duration for the rise
-      delay: 1, // Add 0.3s delay for the animation
+      duration: 0.2,
+      delay: 1,
     },
   };
 
   return (
-    <div className="flex justify-between items-center bg-[#00296B] text-white py-16 px-[3.5rem]">
-      <div className="flex flex-col items-start text-[88px] space-y-2">
+    <div className="flex flex-col md:flex-row justify-between items-center bg-[#00296B] text-white px-6 sm:px-10 md:px-14 lg:px-[3.5rem] py-10 md:py-16 gap-10">
+      {/* LEFT SECTION */}
+      <div className="flex flex-col items-start text-[36px] sm:text-[48px] md:text-[64px] lg:text-[88px] leading-tight w-full md:w-1/2">
         <AnimatedText
           englishText="Language Training"
           hindiText={
@@ -71,33 +67,35 @@ const Language = () => {
           hindiClassName="font-urbanist"
           containerClassName="bg-[#00296B]"
         />
-        {/* Image below the text */}
 
         <motion.div
-          className="pt-20"
-          initial={{ opacity: 1 }} // Ensure container is visible
-          whileInView={{ opacity: 1 }} // No animation on container itself
-          viewport={{ once: true, amount: 0.5 }} // Trigger when 50% in view
+          className="pt-10 sm:pt-14 lg:pt-20"
+          initial={{ opacity: 1 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true, amount: 0.5 }}
         >
           <CircleLeaf />
         </motion.div>
       </div>
 
-      <div className="flex flex-col items-start text-[16px] gap-y-20">
+      {/* RIGHT SECTION */}
+      <div className="flex flex-col items-start w-full md:w-1/2 gap-y-14 md:gap-y-20">
         <motion.div
-          className="flex flex-col justify-center items-center"
-          initial={{ opacity: 1 }} // Ensure container is visible
-          whileInView={{ opacity: 1 }} // No animation on container itself
-          viewport={{ once: true, amount: 0.5 }} // Trigger when 50% in view
+          className="flex flex-col justify-center items-center gap-4"
+          initial={{ opacity: 1 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true, amount: 0.5 }}
         >
-          <div className="flex justify-center items-center">
+          {/* Row 1 */}
+          <div className="flex flex-wrap justify-center items-center gap-2 sm:gap-3">
             <CircleOrangeLeaf />
             <AnimatedLeaf delayIndex={0} />
             <AnimatedLeaf delayIndex={1} />
             <AnimatedLeaf delayIndex={2} />
             <AnimatedLeaf delayIndex={3} />
           </div>
-          <div className="flex justify-center items-center">
+          {/* Row 2 */}
+          <div className="flex flex-wrap justify-center items-center gap-2 sm:gap-3">
             <CircleOrangeLeaf />
             <AnimatedLeaf delayIndex={0} />
             <AnimatedLeaf delayIndex={1} />
@@ -105,7 +103,8 @@ const Language = () => {
             <AnimatedLeaf delayIndex={3} />
             <AnimatedLeaf delayIndex={4} />
           </div>
-          <div className="flex justify-center items-center">
+          {/* Row 3 */}
+          <div className="flex flex-wrap justify-center items-center gap-2 sm:gap-3">
             <CircleOrangeLeaf />
             <AnimatedLeaf delayIndex={0} />
             <AnimatedLeaf delayIndex={1} />
@@ -113,53 +112,50 @@ const Language = () => {
             <AnimatedLeaf delayIndex={3} />
           </div>
         </motion.div>
-        {/* Container for the description text */}
-        <div className="relative w-full ">
+
+        {/* Description */}
+        <div className="relative w-full min-h-[150px]">
           <motion.div
-            onMouseEnter={() => setIsHoveredDescription(true)} // Show Hindi description on hover
-            onMouseLeave={() => setIsHoveredDescription(false)} // Show English description on hover out
-            initial={riseAnimation.initial} // Explicitly set initial state
-            whileInView={riseAnimation.animate} // Use whileInView for viewport detection
-            transition={riseAnimation.transition} // Apply transition with delay
-            viewport={{ once: true, amount: 0.5 }} // Trigger when 50% of component is in view
+            onMouseEnter={() => setIsHoveredDescription(true)}
+            onMouseLeave={() => setIsHoveredDescription(false)}
+            initial={riseAnimation.initial}
+            whileInView={riseAnimation.animate}
+            transition={riseAnimation.transition}
+            viewport={{ once: true, amount: 0.5 }}
           >
             <AnimatePresence mode="sync">
-              <div className="tracking-wide font-poppins min-h-[100px] w-full">
+              <div className="tracking-wide font-poppins text-sm sm:text-base md:text-lg min-h-[100px] w-full">
                 {isHoveredDescription ? (
                   <motion.div
                     key="hindi-description"
-                    initial={{ opacity: 0, y: 10 }} // Start below
-                    animate={{ opacity: 1, y: 0 }} // Move to position
-                    exit={{ opacity: 0, y: 10 }} // Exit below
-                    transition={{ ...springSettings, delay: 0.001 }} // 1ms delay
-                    className="absolute tracking-wide text-base/8"
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: 10 }}
+                    transition={{ ...springSettings, delay: 0.001 }}
+                    className="absolute"
                   >
-                    उद्देश्यपूर्ण भाषा प्रशिक्षण के साथ प्रवाह्यता प्राप्त करें।
-                    हमारे अनुभवी 
+                    उद्देश्यपूर्ण भाषा प्रशिक्षण के साथ प्रवाह्यता प्राप्त करें। हमारे अनुभवी 
                     <br />
-                   और कुशल द्विभाषी प्रशिक्षक आपकी आवश्यकताओं और समयानुसार
-                    
+                    और कुशल द्विभाषी प्रशिक्षक आपकी आवश्यकताओं और समयानुसार
                     <br />
-                   अनुकूलित कार्यक्रम प्रदान करते हैं, जिससे आप आत्मविश्वास, स्पष्टता {" "}
+                    अनुकूलित कार्यक्रम प्रदान करते हैं, जिससे आप आत्मविश्वास, स्पष्टता{" "}
                     <br />
-                   और प्रभावशीलता के साथ किसी भी भाषा में संवाद कर सकें।
+                    और प्रभावशीलता के साथ किसी भी भाषा में संवाद कर सकें।
                   </motion.div>
                 ) : (
                   <motion.div
                     key="english-description"
-                    initial={{ opacity: 0, y: 10 }} // Start below
-                    animate={{ opacity: 1, y: 0 }} // Move to position
-                    exit={{ opacity: 0, y: 10 }} // Exit below
-                    transition={{ ...springSettings, delay: 0.001 }} // 1ms delay
-                    className="absolute tracking-wide font-poppins text-base/8"
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: 10 }}
+                    transition={{ ...springSettings, delay: 0.001 }}
+                    className="absolute"
                   >
                     Achieve fluency with purpose-driven language training. 
                     <br />
-                   Our expert bilingual trainers deliver tailored programs 
+                    Our expert bilingual trainers deliver tailored programs 
                     <br />
-                  that fit your schedule, empowering you to communicate confidently and effectively.
-                    <br />
-                   
+                    that fit your schedule, empowering you to communicate confidently and effectively.
                   </motion.div>
                 )}
               </div>

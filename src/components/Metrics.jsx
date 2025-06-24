@@ -1,30 +1,25 @@
 import React from "react";
 import { motion, useInView } from "framer-motion";
-import flow from "../assets/bubble.json";
-import Lottie from "lottie-react";
+
 const Metrics = () => {
-  // Animation variants for the boxes
   const boxVariants = {
-    hidden: { scale: 0 }, // Start fully shrunk
-    visible: { scale: 1 }, // Expand to full size
+    hidden: { scale: 0 },
+    visible: { scale: 1 },
   };
 
-  // Animation variants for the text
   const textVariants = {
-    hidden: { opacity: 0, y: 20 }, // Start invisible and slightly below
-    visible: { opacity: 1, y: 0 }, // Fade in and slide up
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0 },
   };
 
-  // Animation variants for the centered text
   const centerTextVariants = {
     hidden: { opacity: 0 },
     visible: { opacity: 1 },
   };
 
-  // Configuration for each box
   const boxConfigs = [
     {
-      borderColor: "#FDC550", // yellow-500
+      borderColor: "#FDC550",
       borderRadius: "rounded-t-full rounded-r-full",
       fillDirection: "top-right",
       text: "Words/Year",
@@ -57,19 +52,18 @@ const Metrics = () => {
     },
   ];
 
-  // Use Framer Motion's useInView to detect when component is in view
   const ref = React.useRef(null);
-  const inView = useInView(ref, {
-    amount: 0.5, // Trigger when 50% of the component is visible
-    once: true, // Only trigger once
-  });
+  const inView = useInView(ref, { amount: 0.5, once: true });
 
   return (
-    <div ref={ref} className="flex gap-x-20 justify-between items-start p-20">
+    <div
+      ref={ref}
+      className="flex flex-wrap justify-center md:justify-between items-start px-4 sm:px-10 lg:px-20 py-10 gap-10 sm:gap-14 lg:gap-20 bg-white"
+    >
       {boxConfigs.map((config, index) => (
         <div key={index} className="flex flex-col items-center">
           <motion.div
-            className={`w-[152px] h-[152px] border-[3px] ${config.borderRadius} relative overflow-hidden`}
+            className={`w-28 sm:w-36 lg:w-[152px] h-28 sm:h-36 lg:h-[152px] border-[3px] ${config.borderRadius} relative overflow-hidden`}
             style={{
               borderColor: config.borderColor,
               transformOrigin: "center",
@@ -102,7 +96,7 @@ const Metrics = () => {
               transition={{ duration: 1, delay: 2, ease: "easeOut" }}
             />
             <motion.span
-              className="absolute inset-0 flex items-center justify-center font-semibold font-poppins text-xl"
+              className="absolute inset-0 flex items-center justify-center font-semibold font-poppins text-lg sm:text-xl"
               style={{ color: config.textColor }}
               variants={centerTextVariants}
               initial="hidden"
@@ -112,8 +106,9 @@ const Metrics = () => {
               {config.centerText}
             </motion.span>
           </motion.div>
+
           <motion.p
-            className="mt-10 text-lg font-medium text-gray-800"
+            className="mt-6 text-base sm:text-lg font-medium text-gray-800 text-center"
             variants={textVariants}
             initial="hidden"
             animate={inView ? "visible" : "hidden"}

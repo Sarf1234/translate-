@@ -1,24 +1,26 @@
-import { motion, AnimatePresence } from "framer-motion"; // Import Framer Motion
+import { motion } from "framer-motion";
 
 const Divider = () => {
   const riseAnimation = {
-    initial: { opacity: 0, y: -100 }, // Start 50px below and invisible
-    animate: { opacity: 1, y: 0 }, // Move to original position and fully visible
+    initial: { opacity: 0, y: -100 },
+    animate: { opacity: 1, y: 0 },
     transition: {
       type: "tween",
       stiffness: 150,
       damping: 15,
-      duration: 0.25, // Smooth duration for the rise
-      delay: 0.5, // Add 0.3s delay for the animation
+      duration: 0.25,
+      delay: 0.5,
     },
   };
+
   return (
-    <div className="flex justify-start items-center font-urbanist text-[88px] bg-[#00296B] text-white px-20 py-6">
+    <div className="w-full flex justify-start items-center font-urbanist bg-[#00296B] text-white px-4 sm:px-10 lg:px-20 py-6">
       <motion.div
-        initial={riseAnimation.initial} // Explicitly set initial state
-        whileInView={riseAnimation.animate} // Use whileInView for viewport detection
-        transition={riseAnimation.transition} // Apply transition with delay
+        initial={riseAnimation.initial}
+        whileInView={riseAnimation.animate}
+        transition={riseAnimation.transition}
         viewport={{ once: true, amount: 0.5 }}
+        className="text-3xl sm:text-5xl lg:text-[88px] leading-tight"
       >
         Charting Our Ascent
       </motion.div>

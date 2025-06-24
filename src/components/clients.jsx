@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect } from "react";
 import { motion, useAnimation } from "framer-motion";
 import image1 from "../assets/client1.png";
 import image2 from "../assets/client2.png";
@@ -16,28 +16,8 @@ import image12 from "../assets/cl5.png";
 const images = [image1, image2, image3, image4, image5, image6, image7];
 const images2 = [image8, image9, image10, image11, image12, image8];
 
-const extendedImages = [
-  ...images,
-  ...images,
-  ...images,
-  ...images,
-  ...images,
-  ...images,
-  ...images,
-  ...images,
-  ...images,
-];
-const extendedImages2 = [
-  ...images2,
-  ...images2,
-  ...images2,
-  ...images2,
-  ...images2,
-  ...images2,
-  ...images2,
-  ...images2,
-  ...images2,
-];
+const extendedImages = new Array(8).fill(images).flat();
+const extendedImages2 = new Array(8).fill(images2).flat();
 
 const Clients = () => {
   const controls = useAnimation();
@@ -76,14 +56,14 @@ const Clients = () => {
   }, [controls2, totalWidth2]);
 
   return (
-    <div className="relative py-10 flex flex-col gap-y-10 overflow-hidden">
-      {/* Left fog */}
-      <div className="pointer-events-none absolute left-0 top-0 h-full w-40 z-30 bg-[linear-gradient(to_right,_white_50%,_transparent)]" />
-      <div className="pointer-events-none absolute right-0 top-0 h-full w-40 z-30 bg-[linear-gradient(to_left,_white_50%,_transparent)]" />
+    <div className="relative py-10 flex flex-col gap-y-10 overflow-hidden px-4 sm:px-6 lg:px-20">
+      {/* Fog gradient overlays */}
+      <div className="pointer-events-none absolute left-0 top-0 h-full w-16 sm:w-20 z-30 bg-gradient-to-r from-white via-white/80 to-transparent" />
+      <div className="pointer-events-none absolute right-0 top-0 h-full w-16 sm:w-20 z-30 bg-gradient-to-l from-white via-white/80 to-transparent" />
 
       {/* First Carousel */}
       <motion.div
-        className="flex gap-x-20"
+        className="flex gap-8 sm:gap-12 lg:gap-20 items-center"
         animate={controls}
         style={{ width: `${totalWidth * 2}px` }}
       >
@@ -92,14 +72,14 @@ const Clients = () => {
             key={index}
             src={image}
             alt={`Client ${(index % images.length) + 1}`}
-            className="w-auto h-auto mx-10 object-contain"
+            className="h-10 sm:h-14 md:h-20 w-auto object-contain mx-2"
           />
         ))}
       </motion.div>
 
       {/* Second Carousel */}
       <motion.div
-        className="flex gap-x-20"
+        className="flex gap-8 sm:gap-12 lg:gap-20 items-center"
         initial={{ x: -totalWidth2 }}
         animate={controls2}
         style={{ width: `${totalWidth2 * 2}px` }}
@@ -109,7 +89,7 @@ const Clients = () => {
             key={index}
             src={image}
             alt={`Client ${(index % images2.length) + 1}`}
-            className="w-auto h-auto mx-10 object-contain"
+            className="h-10 sm:h-14 md:h-20 w-auto object-contain mx-2"
           />
         ))}
       </motion.div>
