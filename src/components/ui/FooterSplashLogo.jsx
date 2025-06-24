@@ -11,36 +11,36 @@ const FooterSplashLogoHoverSequence = () => {
   const [currentAnimation, setCurrentAnimation] = useState(0);
   const [hasAnimatedOnce, setHasAnimatedOnce] = useState(false);
 
-  const { ref, inView } = useInView({ threshold: 0.5 });
+  const { ref, inView } = useInView({
+    threshold: 0.5,
+  });
 
-  // ✅ Detect mobile
-  const isMobile = typeof window !== "undefined" && /Mobi|Android/i.test(navigator.userAgent);
-
-  // ✅ Auto play once on mobile view only
+  // Auto play once when in view
   useEffect(() => {
-    if (inView && !hasAnimatedOnce && isMobile) {
+    if (inView && !hasAnimatedOnce) {
       triggerAnimation();
       setHasAnimatedOnce(true);
     }
-  }, [inView, hasAnimatedOnce, isMobile]);
+  }, [inView, hasAnimatedOnce]);
 
-  // ✅ Auto play next animation step
-  useEffect(() => {
-    if (isAnimating && currentAnimation > 0 && currentAnimation < 3) {
-      const delay =
-        currentAnimation === 1
-          ? 1000 // flow1 duration
-          : currentAnimation === 2
-          ? 4000 // flow3 duration
-          : 1000;
+  // Run next animation after delay
+ useEffect(() => {
+  if (isAnimating && currentAnimation > 0 && currentAnimation < 3) {
+    const delay =
+      currentAnimation === 1
+        ? 1000 // flow1 duration (shorter)
+        : currentAnimation === 2
+        ? 4000 // flow3 duration (longer)
+        : 1000; // flow6 duration (optional, if needed)
 
-      const timer = setTimeout(() => {
-        setCurrentAnimation((prev) => prev + 1);
-      }, delay);
+    const timer = setTimeout(() => {
+      setCurrentAnimation((prev) => prev + 1);
+    }, delay);
 
-      return () => clearTimeout(timer);
-    }
-  }, [isAnimating, currentAnimation]);
+    return () => clearTimeout(timer);
+  }
+}, [isAnimating, currentAnimation]);
+
 
   const triggerAnimation = () => {
     if (!isAnimating) {
@@ -57,8 +57,8 @@ const FooterSplashLogoHoverSequence = () => {
   return (
     <div
       ref={ref}
-      onMouseEnter={!isMobile ? triggerAnimation : undefined}
-      onMouseLeave={!isMobile ? triggerAnimation : undefined}
+      onMouseEnter={triggerAnimation}
+      onMouseLeave={triggerAnimation}
       className="relative w-full h-6/8 bg-transparent rounded-xl cursor-pointer overflow-hidden flex items-center justify-center"
     >
       {isAnimating && currentAnimation > 0 ? (
@@ -75,7 +75,7 @@ const FooterSplashLogoHoverSequence = () => {
             <Lottie
               animationData={flow3}
               loop={false}
-              className="absolute top-4/12 w-full h-full"
+              className="absolute top-4/12 w-full h-full "
               style={{ transform: "scale(2.4)", transformOrigin: "center" }}
               onComplete={handleAnimationEnd}
             />
@@ -85,12 +85,13 @@ const FooterSplashLogoHoverSequence = () => {
               animationData={flow6}
               loop={false}
               className="absolute top-4/12 w-full h-full"
-              style={{ transform: "scale(2.4)", transformOrigin: "center" }}
               onComplete={handleAnimationEnd}
+              style={{ transform: "scale(2.4)", transformOrigin: "center" }}
             />
           )}
         </>
       ) : (
+        // 👇 Show final static animation (flow6) after complete
         <Lottie
           animationData={flow3}
           loop={false}
