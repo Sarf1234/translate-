@@ -56,7 +56,7 @@ const AnimatedSVG = () => {
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, amount: 0.5 }}
-      className="mx-auto"
+      className="w-full max-w-[509px] h-auto mx-auto"
     >
       {/* Animated Paths */}
       {animatedPaths.map((d, i) => (

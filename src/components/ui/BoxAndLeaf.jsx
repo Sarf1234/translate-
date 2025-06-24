@@ -45,7 +45,7 @@ export default function BoxAndLeaf() {
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, amount: 0.5 }}
-      className="mx-auto"
+      className="w-full max-w-[509px] h-auto mx-auto"
     >
       {Array.from({ length: totalPairs }).map((_, i) => {
         const isStatic = i === totalPairs - 1; // last column static

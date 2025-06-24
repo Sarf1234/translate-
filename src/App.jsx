@@ -74,13 +74,13 @@ function App() {
             <CenterReveal>
               <Translation />
             </CenterReveal>
-            <CenterReveal>
+           <CenterReveal>
               <Localization />
             </CenterReveal>
-            <CenterReveal>
+              <CenterReveal>
               <Language />
-            </CenterReveal>
-            <CenterReveal>
+            </CenterReveal> 
+           {/* <CenterReveal>
               <Tele />
             </CenterReveal>
 
@@ -104,10 +104,10 @@ function App() {
               <Separator />
             </AnimatedSection>
 
-            <Footer />
-          </Suspense>
+            <Footer />*/}
+          </Suspense> 
 
-          <hr className="border-2 border-[#FDC550]" />
+          {/* <hr className="border-2 border-[#FDC550]" /> */}
         </div>
       )}
     </>

@@ -23,56 +23,44 @@ const SubHero = () => {
   }, [isImageHovered]);
 
   return (
-    <div
+    <div 
       id="about"
-      className="flex flex-col justify-center items-center"
-      style={{marginBottom:"-2px"}}
+      className="hidden sm:flex flex-col justify-center items-center" 
+      style={{ marginBottom: "-2px" }}
     >
-      {/* Text block with hover triggering image animation */}
+      {/* Poora component hidden rahega mobile pe (hidden sm:flex se) */}
+
       <GlassyText texttrue={setIsTextHovered} textfalse={setIsTextHovered} />
 
-      {/* Image block with animation on hover */}
-     {/* Image block with animation on hover */}
-<div
-  className="relative w-full overflow-hidden"
-  onMouseEnter={() => setIsImageHovered(true)}
-  onMouseLeave={() => setIsImageHovered(false)}
->
-  {/* Image sliding container */}
-  <div
-    className={`transform transition-transform duration-1000 ease-in-out ${
-      isImageVisible ? "translate-y-0" : "translate-y-full"
-    }`}
-  >
-    <img
-      ref={imageRef}
-      src={image1}
-      className="w-full"
-      alt=""
-    />
-  </div>
+      <div
+        className="relative w-full overflow-hidden"
+        onMouseEnter={() => setIsImageHovered(true)}
+        onMouseLeave={() => setIsImageHovered(false)}
+      >
+        <div
+          className={`transform transition-transform duration-1000 ease-in-out ${
+            isImageVisible ? "translate-y-0" : "translate-y-full"
+          }`}
+        >
+          <img ref={imageRef} src={image1} className="w-full" alt="" />
+        </div>
 
-  {/* Gradient Overlay - linked with image visibility */}
- <div
-  className="absolute bottom-0 left-0 w-full h-1/2 pointer-events-none select-none transition-opacity duration-1500 ease-in-out"
-  style={{
-    backgroundImage: "linear-gradient(0deg, #00296B 0px, #00296B 12px, rgba(0, 41, 107, 0) 100%)",
-    opacity: showTransverseText ? 1 : 0,
-  }}
-/>
+        <div
+          className="absolute bottom-0 left-0 w-full h-1/2 pointer-events-none select-none transition-opacity duration-1500 ease-in-out"
+          style={{
+            backgroundImage: "linear-gradient(0deg, #00296B 0px, #00296B 12px, rgba(0, 41, 107, 0) 100%)",
+            opacity: showTransverseText ? 1 : 0,
+          }}
+        />
 
-  {/* Text Reveal - linked with delayed hover */}
-  <div
-    className={`absolute bottom-0 left-0 w-full text-center pb-1 transition-transform duration-900 ease-in-out ${
-      showTransverseText ? "translate-y-0" : "translate-y-full"
-    }`}
-  >
-    <span className="text-[200px] text-white font-urbanist">
-      Transverse
-    </span>
-  </div>
-</div>
-
+        <div
+          className={`absolute bottom-0 left-0 w-full text-center pb-1 transition-transform duration-900 ease-in-out ${
+            showTransverseText ? "translate-y-0" : "translate-y-full"
+          }`}
+        >
+          <span className="text-[200px] text-white font-urbanist">Transverse</span>
+        </div>
+      </div>
     </div>
   );
 };

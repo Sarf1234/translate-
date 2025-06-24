@@ -31,8 +31,21 @@ const Localization = () => {
   };
 
   return (
-    <div className="flex justify-between items-center bg-white py-14 px-[3.5rem]">
-      <div className="flex flex-col items-start text-[88px] space-y-12">
+    <div  
+       className="
+        scroll-mt-10 
+        bg-white 
+        py-14 
+        px-4 sm:px-6 md:px-10 lg:px-[3.5rem] 
+        flex 
+        justify-between 
+        items-center 
+        flex-wrap
+        md:flex-nowrap 
+        md:flex-row 
+        flex-col
+      ">
+      <div className="flex flex-col items-start text-[58px] md:text-[88px] text-black space-y-12 w-full md:w-auto">
         {/* Container for the title text with relative positioning */}
           {/* <motion.div
             onMouseEnter={() => setIsHoveredTitle(true)} // Show Hindi title on hover
@@ -71,7 +84,7 @@ const Localization = () => {
           <AnimatedText
             englishText="Localization"
             hindiText="स्थानीयकरण"
-            englishClassName="font-urbanist"
+            englishClassName="font-urbanist "
             hindiClassName = "font-urbanist"
             containerClassName="bg-[#ffffff]"
           />
@@ -96,8 +109,8 @@ const Localization = () => {
         </div>
       </div>
 
-      <div className="flex flex-col items-start text-[16px] pl-20 space-y-12">
-        <div>
+      <div className="flex flex-col items-start text-[16px] text-black space-y-12 w-full md:w-auto mt-16 md:mt-0">
+        <div className="self-start">
           <OrangeLeaf />
         </div>
         {/* Container for the description text */}

@@ -52,7 +52,7 @@ export default function Leaf() {
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, amount: 0.5 }}
-      className="mx-auto"
+      className="w-full max-w-[509px] h-auto mx-auto"
     >
       {/* Static right ke 2 leaves */}
       {staticLeaves.map((leaf, i) => (

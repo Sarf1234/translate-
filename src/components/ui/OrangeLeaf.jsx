@@ -63,7 +63,7 @@ export default function AnimatedLeaves() {
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, amount: 0.5 }}
-      className="mx-auto"
+      className="w-full max-w-[509px] h-auto mx-auto"
     >
       {/* Animate hone wale leaves */}
       {animatedLeaves.map(([path1, path2], i) => (

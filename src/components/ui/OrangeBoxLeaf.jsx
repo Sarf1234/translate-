@@ -58,7 +58,7 @@ export default function OrangeBoxLeafLeft() {
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, amount: 0.5 }}
-      className="mx-auto"
+      className="w-full max-w-[509px] h-auto mx-auto"
     >
       {/* Static shapes on the left */}
       {staticShapes.map((shape, i) => (

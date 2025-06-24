@@ -1,5 +1,5 @@
 import React from "react";
-import { motion } from "framer-motion"; // Import Framer Motion
+import { motion } from "framer-motion";
 import image1 from "../assets/hero_image_1.png";
 import image2 from "../assets/hero_image_2.png";
 import image3 from "../assets/hero_image_3.png";
@@ -7,72 +7,37 @@ import image4 from "../assets/GroupMouse.svg";
 import ContactButton from "./ui/ContactButton";
 
 const Hero = () => {
-  // Animation for rising in (used for text, button, and images)
   const riseAnimation = {
-    initial: { opacity: 0, y: 50 }, // Start 50px below and invisible
-    animate: { opacity: 1, y: 0 }, // Move to original position and fully visible
-    transition: {
-      type: "spring",
-      stiffness: 100,
-      damping: 7,
-      duration: 0.5,
-      delay: 0.3,
-    },
+    initial: { opacity: 0, y: 50 },
+    animate: { opacity: 1, y: 0 },
+    transition: { type: "spring", stiffness: 100, damping: 7, duration: 0.5, delay: 0.3 },
   };
 
-  // Infinite loop animation for image2 (up with pauses) and image3 (left with pauses)
   const loopAnimation = {
     image1: {
-      animate: { y: [0, -20, -20, 0, 0] }, // Move 40px up, pause, return, pause
+      animate: { y: [0, -20, -20, 0, 0] },
       transition: {
-        y: {
-          times: [0, 0.2, 0.6, 0.8, 1.8], // 30% to -40, 20% pause, 30% to 0, 20% pause
-          repeat: Infinity,
-          duration: 1.5, // 5s total (1.5s up, 1s pause, 1.5s down, 1s pause)
-          ease: "easeInOut", // Smooth easing
-          delay: 1.2, // Start after riseAnimation
-        },
+        y: { times: [0, 0.2, 0.6, 0.8, 1.8], repeat: Infinity, duration: 1.5, ease: "easeInOut", delay: 1.2 },
       },
     },
     image2: {
-      animate: { y: [0, -70, -70, 0, 0] }, // Move 40px up, pause, return, pause
+      animate: { y: [0, -70, -70, 0, 0] },
       transition: {
-        y: {
-          times: [0, 0.2, 0.6, 0.8, 1.8], // 30% to -40, 20% pause, 30% to 0, 20% pause
-          repeat: Infinity,
-          duration: 1.5, // 5s total (1.5s up, 1s pause, 1.5s down, 1s pause)
-          ease: "easeOut", // Smooth easing
-          delay: 1.2, // Start after riseAnimation
-        },
+        y: { times: [0, 0.2, 0.6, 0.8, 1.8], repeat: Infinity, duration: 1.5, ease: "easeOut", delay: 1.2 },
       },
     },
     image3: {
-      animate: {
-        x: [0, -100, -100, 0, 0],
-        y: [0, -15, -15, 0, 0], // upward motion in sync with x
-      },
+      animate: { x: [0, -100, -100, 0, 0], y: [0, -15, -15, 0, 0] },
       transition: {
-        x: {
-          times: [0, 0.2, 0.6, 0.8, 1.8],
-          repeat: Infinity,
-          duration: 1.5,
-          ease: "easeOut",
-          delay: 1.2,
-        },
-        y: {
-          times: [0, 0.2, 0.6, 0.8, 1.8],
-          repeat: Infinity,
-          duration: 1.5,
-          ease: "easeOut",
-          delay: 1.2,
-        },
+        x: { times: [0, 0.2, 0.6, 0.8, 1.8], repeat: Infinity, duration: 1.5, ease: "easeOut", delay: 1.2 },
+        y: { times: [0, 0.2, 0.6, 0.8, 1.8], repeat: Infinity, duration: 1.5, ease: "easeOut", delay: 1.2 },
       },
     },
   };
 
   return (
     <div>
-      <div className="flex flex-row justify-between h-auto bg-white px-[86px] pt-10">
+      <div className="flex flex-col md:flex-row justify-between h-auto bg-white px-4 md:px-[86px] pt-10">
         <motion.div
           initial={riseAnimation.initial}
           whileInView={riseAnimation.animate}
@@ -85,39 +50,33 @@ const Hero = () => {
             whileInView={riseAnimation.animate}
             transition={riseAnimation.transition}
             viewport={{ once: true, amount: 0.5 }}
-            className="flex flex-col items-start text-[64px] font-urbanist"
+            className="flex flex-col items-start text-[48px] md:text-[64px] font-urbanist"
             style={{ lineHeight: "1.2" }}
           >
             <div>Your Language</div>
             <div>Partner</div>
           </motion.div>
+
           <motion.div
             initial={riseAnimation.initial}
             whileInView={riseAnimation.animate}
             transition={riseAnimation.transition}
             viewport={{ once: true, amount: 0.5 }}
-            className="flex flex-col items-start text-[16px] font-poppins"
+            className="flex flex-col items-start text-[16px] font-poppins mt-2"
           >
             <div>Empowering businesses</div>
             <div>worldwide</div>
           </motion.div>
-          {/* <div
-          className="inline-block px-5 py-2.5 w-[90px] text-white text-[16px] font-bold text-center cursor-pointer
-         bg-[#c5e86c] hover:bg-[#b0d35e] rounded-br-[20px] rounded-tr-[20px] rounded-bl-[20px] border-0 mt-[30px]"
-        >
-          call us
-        </div> */}
-          <div className="relative z-10 overflow-visible">
+
+          <div className="relative z-10 overflow-visible mt-6">
             <ContactButton />
           </div>
-          <img
-            src={image4}
-            alt="Mouse Icon"
-            className="w-[40px] h-[40px] mt-20 text-[#2595]"
-          />
+
+          <img src={image4} alt="Mouse Icon" className="w-[40px] h-[40px] mt-20 text-[#2595]" />
         </motion.div>
 
-        <div className="flex pt-[80px]">
+        {/* Image Section: hide on mobile */}
+        <div className="hidden md:flex pt-[80px]">
           <motion.div
             initial={riseAnimation.initial}
             whileInView={riseAnimation.animate}
