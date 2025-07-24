@@ -31,22 +31,22 @@ const Footer = () => {
   return (
     <div
       id="contact"
-      className="bg-[#00296B] max-h-[470px] text-white px-6 sm:px-10 md:px-16 lg:px-24 py-10"
+      className="bg-[#00296B] md:max-h-[470px] text-white px-6 sm:px-10 md:px-16 lg:px-24 py-10"
     >
       {/* Background Image */}
       <div className="absolute inset-0 z-0 opacity-40" />
 
       {/* Content */}
-      <div className="z-10 flex flex-col md:flex-row justify-between h-[65vh] gap-y-20 md:gap-x-20">
+      <div className="z-10 flex flex-col-reverse flex-wrap justify-between">
         {/* Logo + Info */}
         <div
-          className="w-[468px] h-[401px] bg-no-repeat bg-center bg-cover"
+          className="w-auto h-[350px] md:w-[468px] md:h-[401px] bg-no-repeat bg-center bg-contain"
           style={{
             backgroundImage: `url(${image1})`,
           }}
         >
           <FooterSplashLogo />
-          <div className="flex items-center justify-center font-light text-xs gap-x-10 pt-10 mt-2 font-poppins">
+          <div className="flex items-center justify-center font-light text-xs md:gap-x-10 gap-4 md:pt-10 pt-4 mt-2 font-poppins">
             <div>Accessibility Statement</div>
             <div>Privacy Policy</div>
             <div>Terms & Condition</div>
