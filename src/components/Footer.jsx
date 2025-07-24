@@ -37,7 +37,7 @@ const Footer = () => {
       <div className="absolute inset-0 z-0 opacity-40" />
 
       {/* Content */}
-      <div className="z-10 flex flex-col-reverse flex-wrap justify-between">
+      <div className="z-10 flex flex-col-reverse md:flex-row flex-wrap justify-between">
         {/* Logo + Info */}
         <div
           className="w-auto h-[350px] md:w-[468px] md:h-[401px] bg-no-repeat bg-center bg-contain"
